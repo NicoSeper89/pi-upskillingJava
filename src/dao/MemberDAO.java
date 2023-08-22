@@ -1,7 +1,8 @@
 package dao;
 
+import dao.dto.MemberDTO;
 import entities.Member;
 
-public interface MemberDAO extends DAO<Member>{
+public interface MemberDAO extends DAO<MemberDTO>{
 
 }
