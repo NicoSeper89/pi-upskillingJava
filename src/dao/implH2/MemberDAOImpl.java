@@ -4,10 +4,8 @@ import config.JdbcConfiguration;
 import dao.dto.MemberDTO;
 import entities.Member;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MemberDAOImpl implements dao.MemberDAO {
@@ -24,7 +22,11 @@ public class MemberDAOImpl implements dao.MemberDAO {
             + "email = ? "
             + "WHERE id = ?;";
 
-    static final String DELETE = "DELETE FROM FCSDB.MEMBER WHERE id = ?";
+    static final String DELETE = "DELETE FROM fcsdb.member WHERE id = ?;";
+
+    static final String GET_ALL = "SELECT * FROM fcsdb.member;";
+
+    static final String GET_BY_ID = "SELECT * FROM fcsdb.member WHERE id = ?;";
 
     private final Connection conn;
 
@@ -101,7 +103,7 @@ public class MemberDAOImpl implements dao.MemberDAO {
             Integer rs = statement.executeUpdate();
 
             if (rs == 0) {
-                throw new SQLException("No se pudo actualizar la información del nuevo miembro.");
+                throw new SQLException("No se pudo actualizar la información del Miembro.");
             }
 
         } catch (SQLException e) {
@@ -148,11 +150,81 @@ public class MemberDAOImpl implements dao.MemberDAO {
 
     @Override
     public List<MemberDTO> getAll() {
-        return null;
+
+        List<MemberDTO> memberList = new ArrayList<>();
+        PreparedStatement statement = null;
+
+        try {
+            statement = conn.prepareStatement(GET_ALL);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+
+                Integer id = rs.getInt("id");
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                String category = rs.getString("category");
+                String address = rs.getString("address");
+                String phone = rs.getString("phone");
+                String email = rs.getString("email");
+
+                MemberDTO member = new MemberDTO(id, name, surname, category, address, phone, email);
+
+                memberList.add(member);
+
+            }
+
+            return memberList;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     @Override
     public MemberDTO getByID(Integer id) {
-        return null;
+
+        PreparedStatement statement = null;
+
+        try {
+            statement = conn.prepareStatement(GET_BY_ID);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if (!rs.next()) {
+                throw new SQLException("No se encontró el miembro que busca en DB.");
+            }
+
+            Integer id_member = rs.getInt("id");
+            String name = rs.getString("name");
+            String surname = rs.getString("surname");
+            String category = rs.getString("category");
+            String address = rs.getString("address");
+            String phone = rs.getString("phone");
+            String email = rs.getString("email");
+
+            MemberDTO member = new MemberDTO(id_member, name, surname, category, address, phone, email);
+
+            return member;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }
