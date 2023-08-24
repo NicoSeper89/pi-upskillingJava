@@ -3,14 +3,17 @@ package dao.implH2;
 import config.JdbcConfiguration;
 import dao.FeeDAO;
 import dao.dto.FeeDTO;
+import dao.dto.MemberDTO;
 import entities.Fee;
 import entities.Member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FeeDAOImpl implements FeeDAO {
@@ -24,6 +27,12 @@ public class FeeDAOImpl implements FeeDAO {
             + "WHERE id = ?;";
 
     static final String DELETE = "DELETE FROM fcsdb.fee WHERE id = ?;";
+
+    static final String GET_ALL = "SELECT * FROM fcsdb.fee;";
+
+    static final String GET_BY_ID = "SELECT * FROM fcsdb.fee WHERE id = ?;";
+
+
 
     private final Connection conn;
 
@@ -139,11 +148,77 @@ public class FeeDAOImpl implements FeeDAO {
 
     @Override
     public List<FeeDTO> getAll() {
-        return null;
+
+        PreparedStatement statement = null;
+
+        try {
+            statement = conn.prepareStatement(GET_ALL);
+
+            ResultSet rs = statement.executeQuery();
+
+            List<FeeDTO> feeList = new ArrayList<>();
+
+            while (rs.next()) {
+
+                Integer id = rs.getInt("id");
+                Integer amount = rs.getInt("amount");
+                String generationDate = rs.getString("local_date");
+                Boolean paid = rs.getBoolean("paid");
+                Integer id_owner = rs.getInt("owner_id");
+
+                FeeDTO fee = new FeeDTO(id, amount, generationDate, paid, new MemberDTO(id_owner));
+
+                feeList.add(fee);
+            }
+
+            return feeList;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     @Override
     public FeeDTO getByID(Integer id) {
-        return null;
+        PreparedStatement statement = null;
+
+        try {
+            statement = conn.prepareStatement(GET_BY_ID);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if (!rs.next()) {
+                throw new SQLException("No se encontró el miembro que busca en DB.");
+            }
+
+            Integer feeID = rs.getInt("id");
+            Integer amount = rs.getInt("amount");
+            String generationDate = rs.getString("local_date");
+            Boolean paid = rs.getBoolean("paid");
+            Integer id_owner = rs.getInt("owner_id");
+
+            FeeDTO fee = new FeeDTO(feeID, amount, generationDate, paid, new MemberDTO(id_owner));
+
+            return fee;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }

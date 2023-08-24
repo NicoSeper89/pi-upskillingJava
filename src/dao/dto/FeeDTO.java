@@ -8,12 +8,12 @@ public class FeeDTO {
     private Boolean paid;
     private MemberDTO owner;
 
-    public FeeDTO(Integer id, Integer amount, String generationDate, MemberDTO owner) {
+    public FeeDTO(Integer id, Integer amount, String generationDate, Boolean paid, MemberDTO owner) {
         this.id = id;
         this.amount = amount;
         this.generationDate = generationDate;
+        this.paid = paid;
         this.owner = owner;
-        this.paid = false;
     }
 
     public FeeDTO(Integer amount, MemberDTO owner) {
@@ -52,6 +52,14 @@ public class FeeDTO {
         return owner;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "FeeDTO{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", generationDate='" + generationDate + '\'' +
+                ", paid=" + paid +
+                ", owner=" + owner.getId() +
+                '}';
+    }
 }

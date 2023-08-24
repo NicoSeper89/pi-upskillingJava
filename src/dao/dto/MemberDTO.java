@@ -28,6 +28,10 @@ public class MemberDTO {
         this.email = email;
     }
 
+    public MemberDTO(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
