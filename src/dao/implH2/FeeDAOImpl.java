@@ -18,6 +18,13 @@ public class FeeDAOImpl implements FeeDAO {
     static final String INSERT = "INSERT INTO fcsdb.fee (amount, local_date, owner_id)" +
             "VALUES(?, ?, ?);";
 
+    static final String UPLOAD = "UPDATE fcsdb.fee " +
+            "SET amount = ?, "
+            + "paid = ? "
+            + "WHERE id = ?;";
+
+    static final String DELETE = "DELETE FROM fcsdb.fee WHERE id = ?;";
+
     private final Connection conn;
 
     public FeeDAOImpl() {
@@ -66,10 +73,67 @@ public class FeeDAOImpl implements FeeDAO {
     @Override
     public void update(FeeDTO feeDTO) {
 
+        PreparedStatement statement = null;
+
+        try {
+            statement = conn.prepareStatement(UPLOAD);
+
+            Fee updatedFee = new Fee(feeDTO.getId(),
+                    feeDTO.getAmount(),
+                    feeDTO.getPaid()
+            );
+
+            statement.setInt(1, updatedFee.getAmount());
+            statement.setBoolean(2, updatedFee.getPaid());
+            statement.setInt(3, updatedFee.getId());
+
+            Integer rs = statement.executeUpdate();
+
+            if (rs == 0) {
+                throw new SQLException("No se pudo actualizar la información de la cuota.");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
     }
 
     @Override
     public void delete(Integer id) {
+
+        PreparedStatement statement = null;
+
+        try {
+            statement = conn.prepareStatement(DELETE);
+
+            statement.setInt(1, id);
+
+           Integer res = statement.executeUpdate();
+
+           if (res == 0) {
+               throw new SQLException("No se pudo eliminar la cuota");
+           }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
 
     }
 

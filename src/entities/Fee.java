@@ -16,6 +16,12 @@ public class Fee {
         this.paid = false;
     }
 
+    public Fee(Integer id, Integer amount, Boolean paid) {
+        this.id = id;
+        this.amount = amount;
+        this.paid = paid;
+    }
+
     public Fee(Integer amount, Member owner) {
         this.amount = amount;
         this.owner = owner;

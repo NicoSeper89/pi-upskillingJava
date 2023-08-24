@@ -6,7 +6,7 @@ public class FeeDTO {
     private final Integer amount;
     private String generationDate;
     private Boolean paid;
-    private final MemberDTO owner;
+    private MemberDTO owner;
 
     public FeeDTO(Integer id, Integer amount, String generationDate, MemberDTO owner) {
         this.id = id;
@@ -20,6 +20,12 @@ public class FeeDTO {
         this.amount = amount;
         this.owner = owner;
         this.paid = false;
+    }
+
+    public FeeDTO(Integer id, Integer amount, Boolean paid) {
+        this.id = id;
+        this.amount = amount;
+        this.paid = paid;
     }
 
     public Integer getId() {
