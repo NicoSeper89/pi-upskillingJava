@@ -1,28 +1,19 @@
 package entities;
 
-import java.time.LocalDate;
-
 public class Fee {
 
     private Integer id;
     private Integer amount;
-    private Member Owner;
-    private LocalDate issueDate;
+    private String generationDate;
     private Boolean paid;
+    private Member owner;
 
-    public Fee(Integer amount, Member owner, LocalDate issueDate) {
-        this.amount = amount;
-        this.Owner = owner;
-        this.issueDate = issueDate;
-        this.paid = false;
-    }
-
-    public Fee(Integer id, Integer amount, Member owner, LocalDate issueDate, Boolean paid) {
+    public Fee(Integer id, Integer amount, Member owner, String generationDate) {
         this.id = id;
         this.amount = amount;
-        Owner = owner;
-        this.issueDate = issueDate;
-        this.paid = paid;
+        this.generationDate = generationDate;
+        this.owner = owner;
+        this.paid = false;
     }
 
     public Integer getId() {
@@ -34,11 +25,11 @@ public class Fee {
     }
 
     public Member getOwner() {
-        return Owner;
+        return owner;
     }
 
-    public LocalDate getIssueDate() {
-        return issueDate;
+    public String getGenerationDate() {
+        return generationDate;
     }
 
     public Boolean getPaid() {
