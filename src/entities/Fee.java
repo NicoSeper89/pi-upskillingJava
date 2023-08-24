@@ -8,10 +8,16 @@ public class Fee {
     private Boolean paid;
     private Member owner;
 
-    public Fee(Integer id, Integer amount, Member owner, String generationDate) {
+    public Fee(Integer id, Integer amount, String generationDate, Member owner) {
         this.id = id;
         this.amount = amount;
         this.generationDate = generationDate;
+        this.owner = owner;
+        this.paid = false;
+    }
+
+    public Fee(Integer amount, Member owner) {
+        this.amount = amount;
         this.owner = owner;
         this.paid = false;
     }

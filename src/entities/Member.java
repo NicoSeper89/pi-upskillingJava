@@ -12,6 +12,10 @@ public class Member {
     private String phone;
     private String email;
 
+    public Member(Integer id) {
+        this.id = id;
+    }
+
     public Member(Integer id, String name, String surname, String category, String address, String phone, String email) {
         this.id = id;
         this.name = name;
