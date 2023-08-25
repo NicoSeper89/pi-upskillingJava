@@ -86,7 +86,7 @@ public abstract class PersonDTO {
 
     @Override
     public String toString() {
-        return "MemberDTO{" +
+        return "{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

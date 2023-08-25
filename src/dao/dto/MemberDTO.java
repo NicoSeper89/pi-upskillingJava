@@ -13,4 +13,9 @@ public class MemberDTO extends PersonDTO{
     public MemberDTO(Integer id) {
         super(id);
     }
+
+    @Override
+    public String toString() {
+        return "Member: " + super.toString();
+    }
 }

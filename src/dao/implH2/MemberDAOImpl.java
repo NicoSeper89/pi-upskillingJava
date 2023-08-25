@@ -1,230 +1,97 @@
 package dao.implH2;
 
-import config.JdbcConfiguration;
+import dao.MemberDAO;
 import dao.dto.MemberDTO;
+import dao.dto.PersonDTO;
 import entities.Member;
+import entities.Person;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class MemberDAOImpl implements dao.MemberDAO {
 
-    static final String INSERT = "INSERT INTO fcsdb.member (name, surname, category, address, phone, email) "
-            + "VALUES (?, ?, ?, ?, ?, ?);";
+public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO{
 
-    static final String UPLOAD = "UPDATE fcsdb.member " +
-            "SET name = ?, "
-            + "surname = ?, "
-            + "category = ?, "
-            + "address = ?, "
-            + "phone = ?, "
-            + "email = ? "
-            + "WHERE id = ?;";
+    @Override
+    public PersonDTO mapToDTO(ResultSet rs) throws SQLException {
 
-    static final String DELETE = "DELETE FROM fcsdb.member WHERE id = ?;";
+        Integer id = rs.getInt("id");
+        String name = rs.getString("name");
+        String surname = rs.getString("surname");
+        String category = rs.getString("category");
+        String address = rs.getString("address");
+        String phone = rs.getString("phone");
+        String email = rs.getString("email");
 
-    static final String GET_ALL = "SELECT * FROM fcsdb.member;";
+        PersonDTO person = new MemberDTO(id, name, surname, category, address, phone, email);
 
-    static final String GET_BY_ID = "SELECT * FROM fcsdb.member WHERE id = ?;";
-
-    private final Connection conn;
-
-    public MemberDAOImpl() {
-        this.conn = JdbcConfiguration.getDBConnection();
+        return person;
     }
 
     @Override
-    public void insert(MemberDTO memberDTO) {
-
-        Member newMember = new Member(
-                memberDTO.getName(),
-                memberDTO.getSurname(),
-                memberDTO.getCategory(),
-                memberDTO.getAddress(),
-                memberDTO.getPhone(),
-                memberDTO.getEmail()
+    public Person mapToEntity(PersonDTO personDTO) {
+        return new Member(
+                personDTO.getId(),
+                personDTO.getName(),
+                personDTO.getSurname(),
+                personDTO.getCategory(),
+                personDTO.getAddress(),
+                personDTO.getPhone(),
+                personDTO.getEmail()
         );
-
-        PreparedStatement statement = null;
-        try {
-            statement = conn.prepareStatement(INSERT);
-            statement.setString(1, newMember.getName());
-            statement.setString(2, newMember.getSurname());
-            statement.setString(3, newMember.getCategory());
-            statement.setString(4, newMember.getAddress());
-            statement.setString(5, newMember.getPhone());
-            statement.setString(6, newMember.getEmail());
-
-            Integer rs = statement.executeUpdate();
-
-            if (rs == 0) {
-                throw new SQLException("No se pudo agregar al nuevo miembro.");
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
     }
 
     @Override
-    public void update(MemberDTO memberDTO) {
-
-        Member newMember = new Member(
-                memberDTO.getId(),
-                memberDTO.getName(),
-                memberDTO.getSurname(),
-                memberDTO.getCategory(),
-                memberDTO.getAddress(),
-                memberDTO.getPhone(),
-                memberDTO.getEmail()
-        );
+    public PreparedStatement insertStatement(Person person) throws SQLException {
 
         PreparedStatement statement = null;
 
-        try {
-            statement = conn.prepareStatement(UPLOAD);
-            statement.setString(1, newMember.getName());
-            statement.setString(2, newMember.getSurname());
-            statement.setString(3, newMember.getCategory());
-            statement.setString(4, newMember.getAddress());
-            statement.setString(5, newMember.getPhone());
-            statement.setString(6, newMember.getEmail());
-            statement.setInt(7, newMember.getId());
+        String INSERT = "INSERT INTO fcsdb.member (name, surname, category, address, phone, email) "
+                + "VALUES (?, ?, ?, ?, ?, ?);";
 
-            Integer rs = statement.executeUpdate();
+        statement = this.conn.prepareStatement(INSERT);
 
-            if (rs == 0) {
-                throw new SQLException("No se pudo actualizar la información del Miembro.");
-            }
+        statement.setString(1, person.getName());
+        statement.setString(2, person.getSurname());
+        statement.setString(3, person.getCategory());
+        statement.setString(4, person.getAddress());
+        statement.setString(5, person.getPhone());
+        statement.setString(6, person.getEmail());
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
+        return statement;
 
     }
 
     @Override
-    public void delete(Integer memberID) {
+    public PreparedStatement updateStatement(Person updatedPerson) throws SQLException {
 
         PreparedStatement statement = null;
 
-        try {
-            statement = conn.prepareStatement(DELETE);
-            statement.setInt(1, memberID);
-            Integer rs = statement.executeUpdate();
+        String UPLOAD = "UPDATE fcsdb.member"
+                + " SET name = ?, "
+                + "surname = ?, "
+                + "category = ?, "
+                + "address = ?, "
+                + "phone = ?, "
+                + "email = ? "
+                + "WHERE id = ?;";
 
-            if (rs == 0) {
-                throw new SQLException("No se pudo eliminar al nuevo miembro.");
-            }
+        statement = this.conn.prepareStatement(UPLOAD);
+        statement.setString(1, updatedPerson.getName());
+        statement.setString(2, updatedPerson.getSurname());
+        statement.setString(3, updatedPerson.getCategory());
+        statement.setString(4, updatedPerson.getAddress());
+        statement.setString(5, updatedPerson.getPhone());
+        statement.setString(6, updatedPerson.getEmail());
+        statement.setInt(7, updatedPerson.getId());
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (statement != null){
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-
+        return statement;
     }
 
     @Override
-    public List<MemberDTO> getAll() {
-
-        List<MemberDTO> memberList = new ArrayList<>();
-        PreparedStatement statement = null;
-
-        try {
-            statement = conn.prepareStatement(GET_ALL);
-            ResultSet rs = statement.executeQuery();
-
-            while (rs.next()) {
-
-                Integer id = rs.getInt("id");
-                String name = rs.getString("name");
-                String surname = rs.getString("surname");
-                String category = rs.getString("category");
-                String address = rs.getString("address");
-                String phone = rs.getString("phone");
-                String email = rs.getString("email");
-
-                MemberDTO member = new MemberDTO(id, name, surname, category, address, phone, email);
-
-                memberList.add(member);
-
-            }
-
-            return memberList;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (statement != null){
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
+    public String instanceOf() {
+        return "member";
     }
 
-    @Override
-    public MemberDTO getByID(Integer id) {
-
-        PreparedStatement statement = null;
-
-        try {
-            statement = conn.prepareStatement(GET_BY_ID);
-            statement.setInt(1, id);
-            ResultSet rs = statement.executeQuery();
-
-            if (!rs.next()) {
-                throw new SQLException("No se encontró el miembro que busca en DB.");
-            }
-
-            Integer id_member = rs.getInt("id");
-            String name = rs.getString("name");
-            String surname = rs.getString("surname");
-            String category = rs.getString("category");
-            String address = rs.getString("address");
-            String phone = rs.getString("phone");
-            String email = rs.getString("email");
-
-            MemberDTO member = new MemberDTO(id_member, name, surname, category, address, phone, email);
-
-            return member;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (statement != null){
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-    }
 }
