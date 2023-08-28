@@ -1,10 +1,10 @@
-package dao.implH2;
+package main.dao.implH2;
 
-import dao.MemberDAO;
-import dao.dto.MemberDTO;
-import dao.dto.PersonDTO;
-import entities.Member;
-import entities.Person;
+import main.dao.MemberDAO;
+import main.dao.dto.MemberDTO;
+import main.dao.dto.PersonDTO;
+import main.entities.Member;
+import main.entities.Person;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

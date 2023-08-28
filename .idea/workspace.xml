@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="" />
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Refactor DAOs, DTOs and Implementations of Person and Member.">
+      <change afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi-upskillingJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pi-upskillingJava.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/JdbcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/JdbcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/FeeCollectionSystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/FeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/FeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/MemberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/MemberDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/dto/FeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/dto/MemberDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/MemberDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/dto/PersonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/PersonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/implH2/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Fee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entities/Fee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entities/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entities/Person.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2U8a2BV9NanBQAo8F5lH0brvDGX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,9 +51,22 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/nicos/Desktop/proyectoIntegrador-expenseReportApp-modulo3",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dao.implH2" />
+      <recent name="entities" />
+      <recent name="dao.dto" />
+      <recent name="dao" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,6 +76,198 @@
       <option name="presentableId" value="Default" />
       <updated>1692323454477</updated>
     </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <option name="closed" value="true" />
+      <created>1692323511675</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692323511676</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Define Member and Fee classes/entities.">
+      <option name="closed" value="true" />
+      <created>1692586142640</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692586142640</updated>
+    </task>
+    <task id="LOCAL-00003" summary="JDBC Configuration.">
+      <option name="closed" value="true" />
+      <created>1692589482941</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692589482941</updated>
+    </task>
+    <task id="LOCAL-00004" summary="JDBC Configuration.">
+      <option name="closed" value="true" />
+      <created>1692667760000</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692667760000</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Define DAO and MemberDAO interfaces.">
+      <option name="closed" value="true" />
+      <created>1692667967734</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692667967734</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Define MemberDAO class.">
+      <option name="closed" value="true" />
+      <created>1692674078322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692674078322</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add MemberDTO class.">
+      <option name="closed" value="true" />
+      <created>1692676929999</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692676929999</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add MemberDTO class.">
+      <option name="closed" value="true" />
+      <created>1692677132584</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1692677132584</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix Member class.">
+      <option name="closed" value="true" />
+      <created>1692677190230</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1692677190230</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Rename MemberDAO class and implement insert() method">
+      <option name="closed" value="true" />
+      <created>1692677256978</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1692677256978</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Logic of update and delete methods implemented from MemberDAO interface.">
+      <option name="closed" value="true" />
+      <created>1692751786979</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1692751786980</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Logic of getAll and getById methods implemented from MemberDAO interface.">
+      <option name="closed" value="true" />
+      <created>1692754999183</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1692754999183</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changes in Fee class">
+      <option name="closed" value="true" />
+      <created>1692839152051</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692839152051</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Define FeeDAO interface and FeeDTO class.">
+      <option name="closed" value="true" />
+      <created>1692839198064</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1692839198064</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Define FeeDAOImpl class and implements insert method. Changes in Member, Fee and FeeDTO classes.">
+      <option name="closed" value="true" />
+      <created>1692841874325</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692841874325</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Implement Update and Delete method of FeeDAO interface.">
+      <option name="closed" value="true" />
+      <created>1692850214744</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692850214744</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Implement getAll and getById method of FeeDAO interface.">
+      <option name="closed" value="true" />
+      <created>1692852682012</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1692852682012</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Define abstract class PersonDTO and interface PersonDAO.">
+      <option name="closed" value="true" />
+      <created>1692923882566</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1692923882566</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Refactor DAOs, DTOs and Implementations of Person and Member.">
+      <option name="closed" value="true" />
+      <created>1693006717167</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1693006717167</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Refactor DAOs, DTOs and Implementations of Person and Member.">
+      <option name="closed" value="true" />
+      <created>1693006753465</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1693006753465</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit" />
+    <MESSAGE value="Define Member and Fee classes/entities." />
+    <MESSAGE value="JDBC Configuration." />
+    <MESSAGE value="Define DAO and MemberDAO interfaces." />
+    <MESSAGE value="Define MemberDAO class." />
+    <MESSAGE value="Add MemberDTO class." />
+    <MESSAGE value="Fix Member class." />
+    <MESSAGE value="Rename MemberDAO class and implement insert() method" />
+    <MESSAGE value="Logic of update and delete methods implemented from MemberDAO interface." />
+    <MESSAGE value="Logic of getAll and getById methods implemented from MemberDAO interface." />
+    <MESSAGE value="Changes in Fee class" />
+    <MESSAGE value="Define FeeDAO interface and FeeDTO class." />
+    <MESSAGE value="Define FeeDAOImpl class and implements insert method. Changes in Member, Fee and FeeDTO classes." />
+    <MESSAGE value="Implement Update and Delete method of FeeDAO interface." />
+    <MESSAGE value="Implement getAll and getById method of FeeDAO interface." />
+    <MESSAGE value="Define abstract class PersonDTO and interface PersonDAO." />
+    <MESSAGE value="Refactor DAOs, DTOs and Implementations of Person and Member." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor DAOs, DTOs and Implementations of Person and Member." />
   </component>
 </project>

@@ -1,4 +1,4 @@
-package dao.dto;
+package main.dao.dto;
 
 public class MemberDTO extends PersonDTO{
 

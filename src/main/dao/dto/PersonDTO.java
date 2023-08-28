@@ -1,7 +1,6 @@
-package entities;
+package main.dao.dto;
 
-public abstract class Person {
-
+public abstract class PersonDTO {
     private Integer id;
     private String name;
     private String surname;
@@ -10,11 +9,7 @@ public abstract class Person {
     private String phone;
     private String email;
 
-    public Person(Integer id) {
-        this.id = id;
-    }
-
-    public Person(Integer id, String name, String surname, String category, String address, String phone, String email) {
+    public PersonDTO(Integer id, String name, String surname, String category, String address, String phone, String email) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -24,13 +19,17 @@ public abstract class Person {
         this.email = email;
     }
 
-    public Person(String name, String surname, String category, String address, String phone, String email) {
+    public PersonDTO(String name, String surname, String category, String address, String phone, String email) {
         this.name = name;
         this.surname = surname;
         this.category = category;
         this.address = address;
         this.phone = phone;
         this.email = email;
+    }
+
+    public PersonDTO(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
@@ -85,4 +84,16 @@ public abstract class Person {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", category='" + category + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

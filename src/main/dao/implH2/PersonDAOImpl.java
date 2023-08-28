@@ -1,9 +1,9 @@
-package dao.implH2;
+package main.dao.implH2;
 
-import config.JdbcConfiguration;
-import dao.PersonDAO;
-import dao.dto.PersonDTO;
-import entities.Person;
+import main.config.JdbcConfiguration;
+import main.dao.PersonDAO;
+import main.dao.dto.PersonDTO;
+import main.entities.Person;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

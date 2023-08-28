@@ -1,7 +1,7 @@
-package dao;
+package main.dao;
 
-import dao.dto.PersonDTO;
-import entities.Person;
+import main.dao.dto.PersonDTO;
+import main.entities.Person;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

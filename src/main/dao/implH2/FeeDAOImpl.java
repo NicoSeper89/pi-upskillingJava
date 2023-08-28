@@ -1,11 +1,11 @@
-package dao.implH2;
+package main.dao.implH2;
 
-import config.JdbcConfiguration;
-import dao.FeeDAO;
-import dao.dto.FeeDTO;
-import dao.dto.MemberDTO;
-import entities.Fee;
-import entities.Member;
+import main.config.JdbcConfiguration;
+import main.dao.FeeDAO;
+import main.dao.dto.FeeDTO;
+import main.dao.dto.MemberDTO;
+import main.entities.Fee;
+import main.entities.Member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,8 +32,6 @@ public class FeeDAOImpl implements FeeDAO {
 
     static final String GET_BY_ID = "SELECT * FROM fcsdb.fee WHERE id = ?;";
 
-
-
     private final Connection conn;
 
     public FeeDAOImpl() {
@@ -53,7 +51,7 @@ public class FeeDAOImpl implements FeeDAO {
             );
 
             LocalDateTime currentDateAndTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-yyyy");
             String formattedDate = currentDateAndTime.format(formatter);
 
             statement.setInt(1, newFee.getAmount());

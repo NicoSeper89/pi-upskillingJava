@@ -1,4 +1,4 @@
-package entities;
+package main.entities;
 
 public class Member extends Person {
 

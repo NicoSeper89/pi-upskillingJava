@@ -1,6 +1,6 @@
-package dao;
+package main.dao;
 
-import dao.dto.FeeDTO;
+import main.dao.dto.FeeDTO;
 
 public interface FeeDAO extends DAO<FeeDTO> {
 

@@ -1,6 +1,6 @@
-package dao;
+package main.dao;
 
-import dao.dto.MemberDTO;
+import main.dao.dto.MemberDTO;
 
 public interface MemberDAO extends PersonDAO<MemberDTO> {
 
