@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Change package structure by adding Main to the root.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +38,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/nicos/Desktop/proyectoIntegrador-expenseReportApp-modulo3",
+    "last_opened_file_path": "D:/Nico/repos/pi-upskillingJava/jars/h2-2.2.220.jar",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -228,7 +229,55 @@
       <option name="project" value="LOCAL" />
       <updated>1693266016544</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Application menu and &quot;add member&quot; and &quot;exit&quot; options.">
+      <option name="closed" value="true" />
+      <created>1693271531865</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1693271531865</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add h2, JUnite and Mockito dependencies.">
+      <option name="closed" value="true" />
+      <created>1693367787883</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1693367787883</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add h2, JUnite and Mockito dependencies.">
+      <option name="closed" value="true" />
+      <created>1693367797997</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1693367797997</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add exception for data scan. Extends RuntimeException interface.">
+      <option name="closed" value="true" />
+      <created>1693367915396</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1693367915396</updated>
+    </task>
+    <task id="LOCAL-00026" summary="InputValidator interface and implementation of its validate method in InputValidatorString to check correct scanner data.">
+      <option name="closed" value="true" />
+      <created>1693368165319</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1693368165319</updated>
+    </task>
+    <task id="LOCAL-00027" summary="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it.">
+      <option name="closed" value="true" />
+      <created>1693368731870</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1693368731870</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,6 +310,21 @@
     <MESSAGE value="Define abstract class PersonDTO and interface PersonDAO." />
     <MESSAGE value="Refactor DAOs, DTOs and Implementations of Person and Member." />
     <MESSAGE value="Change package structure by adding Main to the root." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change package structure by adding Main to the root." />
+    <MESSAGE value="Application menu and &quot;add member&quot; and &quot;exit&quot; options." />
+    <MESSAGE value="Add h2, JUnite and Mockito dependencies." />
+    <MESSAGE value="Add exception for data scan. Extends RuntimeException interface." />
+    <MESSAGE value="InputValidator interface and implementation of its validate method in InputValidatorString to check correct scanner data." />
+    <MESSAGE value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
+    <option name="LAST_COMMIT_MESSAGE" value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
