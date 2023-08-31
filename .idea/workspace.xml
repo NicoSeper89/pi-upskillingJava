@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Logic method addMember of AppMenu and changes in the scanner (final static now)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/DataScannerString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/DataScannerString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidatorString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidatorString.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Nico/repos/pi-upskillingJava/jars/h2-2.2.220.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Nico/repos/pi-upskillingJava/jars/h2-2.2.220.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao.implH2" />
@@ -277,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693368731870</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Logic method addMember of AppMenu and changes in the scanner (final static now)">
+      <option name="closed" value="true" />
+      <created>1693369592475</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1693369592475</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,7 +328,8 @@
     <MESSAGE value="Add exception for data scan. Extends RuntimeException interface." />
     <MESSAGE value="InputValidator interface and implementation of its validate method in InputValidatorString to check correct scanner data." />
     <MESSAGE value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
-    <option name="LAST_COMMIT_MESSAGE" value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
+    <MESSAGE value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,18 +2,15 @@ package main.utilities;
 
 import main.exceptions.ScanDataException;
 
-import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static main.FeeCollectionSystem.SCANNER;
 
 public class InputValidatorString implements InputValidator<String> {
 
     @Override
-    public boolean validate(String inputValue, String inputName) throws ScanDataException {
+    public boolean validate(String inputValue, String inputType) throws ScanDataException {
 
-        switch (inputName) {
+        switch (inputType) {
             case "name":
                 Integer length = inputValue.length();
                 if (length > 20 || inputValue == "") {

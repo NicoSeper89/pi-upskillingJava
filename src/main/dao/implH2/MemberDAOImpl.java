@@ -16,6 +16,9 @@ public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO
     @Override
     public PersonDTO mapToDTO(ResultSet rs) throws SQLException {
 
+        //Mapear ResultSet a MemberDTO al pedir un Miembro a DB.
+        //Devuelve el Miembro
+
         Integer id = rs.getInt("id");
         String name = rs.getString("name");
         String surname = rs.getString("surname");
@@ -24,13 +27,16 @@ public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO
         String phone = rs.getString("phone");
         String email = rs.getString("email");
 
-        PersonDTO person = new MemberDTO(id, name, surname, category, address, phone, email);
+        MemberDTO member = new MemberDTO(id, name, surname, category, address, phone, email);
 
-        return person;
+        return member;
     }
 
     @Override
     public Person mapToEntity(PersonDTO personDTO) {
+
+        //Mapear MemberDTO a entidad Member para guardar o actualizar Miembro en DB.
+
         return new Member(
                 personDTO.getId(),
                 personDTO.getName(),
@@ -44,6 +50,9 @@ public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO
 
     @Override
     public PreparedStatement insertStatement(Person person) throws SQLException {
+
+        //Crea el statement para guardar un Miembro en DB
+        //Devuelve statement
 
         PreparedStatement statement = null;
 
@@ -65,6 +74,9 @@ public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO
 
     @Override
     public PreparedStatement updateStatement(Person updatedPerson) throws SQLException {
+
+        //Crea el statement para actualizar los datos de un Miembro en DB
+        //Devuelve statement con los datos para actualizar
 
         PreparedStatement statement = null;
 

@@ -7,18 +7,18 @@ import static main.FeeCollectionSystem.SCANNER;
 public class DataScannerString implements DataScanner<String> {
 
     @Override
-    public String enter(String title, String inputName) {
+    public String enter(String title, String inputType) {
 
         Boolean correct = false;
         String value = null;
-        InputValidator<String> inputValidator = new InputValidatorString();
+        InputValidatorString inputValidator = new InputValidatorString();
 
         while (!correct){
 
             try {
                 System.out.print(title + ": ");
                 value = SCANNER.nextLine();
-                correct = inputValidator.validate(value, inputName);
+                correct = inputValidator.validate(value, inputType);
             } catch (ScanDataException e) {
                 e.printStackTrace();
                 System.out.println("");

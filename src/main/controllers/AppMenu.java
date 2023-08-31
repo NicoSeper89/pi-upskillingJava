@@ -11,6 +11,7 @@ import static main.FeeCollectionSystem.SCANNER;
 public class AppMenu {
 
     public static Integer showMenu() {
+        //MENU PRINCIPAL
         System.out.println("------------MENU------------");
         System.out.println("---- Ingrese una opción ----");
         System.out.println("----------------------------");
@@ -18,12 +19,14 @@ public class AppMenu {
         System.out.println("2 - Actualizar Miembro");
         System.out.println("----------------------------");
         System.out.println("3 - Salir");
-
+        
         return enterMenuOption();
     }
 
     private static Integer enterMenuOption() {
 
+        //Pedir opción menu principal y validar que sea correcta.
+        
         Integer res = null;
 
         while (res == null) {
@@ -36,7 +39,6 @@ public class AppMenu {
                 } else {
                     throw new ScanDataException("Opción Invalida. Valor no numero.");
                 }
-
             } catch (ScanDataException e) {
                 res = null;
                 e.printStackTrace();
@@ -53,8 +55,10 @@ public class AppMenu {
 
         System.out.println("Ingresar datos del miembro");
 
+        //Scanner de datos
         DataScannerString stringScanner = new DataScannerString();
 
+        //Solicitar datos de Miembro a Usuario.
         String name = stringScanner.enter("Nombre", "name");
         String surname = stringScanner.enter("Apellido", "surname");
         String category = stringScanner.enter("Categoría", "category");
@@ -62,13 +66,13 @@ public class AppMenu {
         String phone = stringScanner.enter("Teléfono", "phone");
         String email = stringScanner.enter("Email", "email");
 
+        //Crear Miembro y almacenarlo en DB
         MemberDTO member = new MemberDTO(name, surname, category, address, phone, email);
         MemberDAO dao = new MemberDAOImpl();
-
         dao.insert(member);
 
     }
 
-    public static void uploadMember() {
+    public static void updateMember() {
     }
 }
