@@ -18,18 +18,30 @@ public class FeeCollectionSystem {
             menuOption = AppMenu.showMenu();
 
             switch (menuOption) {
-                //AGREGAR SOCIO
+                //AGREGAR MIEMBRO
                 case 1:
                     AppMenu.addMember();
-                    System.out.println("---- Se agrego el Socio correctamente ----");
+                    System.out.println("---- Se agrego el miembro correctamente ----");
                     break;
-                //ACTUALIZAR DATOS SOCIO    
+                //ACTUALIZAR DATOS MIEMBRO
                 case 2:
                     AppMenu.updateInfoMember();
                     System.out.println("---- Se actualizo la información del miembro correctamente ----");
                     break;
-                //SALIR    
+                //VER LISTA DE TODOS LOS MIEMBROS
                 case 3:
+                    AppMenu.getAllMembers();
+                    break;
+                //BUSCAR MIEMBRO POR ID
+                case 4:
+                    AppMenu.getMemberById();
+                    break;
+                //BORRAR MIEMBRO
+                case 5:
+                    AppMenu.deleteMember();
+                    break;
+                //SALIR
+                case 6:
                     exit = true;
                     break;
             }

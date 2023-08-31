@@ -6,6 +6,8 @@ import main.dao.implH2.MemberDAOImpl;
 import main.exceptions.ScanDataException;
 import main.utilities.DataScannerString;
 
+import java.util.List;
+
 import static main.FeeCollectionSystem.SCANNER;
 
 public class AppMenu {
@@ -16,9 +18,12 @@ public class AppMenu {
         System.out.println("---- Ingrese una opción ----");
         System.out.println("----------------------------");
         System.out.println("1 - Agregar Miembro");
-        System.out.println("2 - Actualizar Miembro");
+        System.out.println("2 - Actualizar Información de Miembro");
+        System.out.println("3 - Ver lista de Miembros");
+        System.out.println("4 - Buscar Miembro por ID");
+        System.out.println("5 - Borrar Miembro");
         System.out.println("----------------------------");
-        System.out.println("3 - Salir");
+        System.out.println("6 - Salir");
         
         return enterMenuOption();
     }
@@ -33,11 +38,11 @@ public class AppMenu {
             try {
                 if (SCANNER.hasNextInt()) {
                     res = SCANNER.nextInt();
-                    if (res < 1 || res > 3) {
-                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 3");
+                    if (res < 1 || res > 6) {
+                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 6");
                     }
                 } else {
-                    throw new ScanDataException("Opción Invalida. Valor no numero.");
+                    throw new ScanDataException("Opción Invalida. Valor no numérico.");
                 }
             } catch (ScanDataException e) {
                 res = null;
@@ -75,7 +80,7 @@ public class AppMenu {
 
     public static void updateInfoMember() {
 
-        System.out.println("Ingrese el ID del Miembro que desea actualizar");
+        System.out.println("Ingresar el ID del Miembro que desea actualizar");
 
         // Solicitar ID y buscar el miembro por ID para saber si existe en DB.
         Integer id = SCANNER.nextInt();
@@ -108,5 +113,38 @@ public class AppMenu {
 
     }
 
+    public static void getAllMembers() {
 
+        MemberDAO dao = new MemberDAOImpl();
+
+        List<MemberDTO> memberList = dao.getAll();
+
+        for (MemberDTO m: memberList) {
+
+            System.out.println(m);
+
+        }
+
+    }
+
+    public static void getMemberById() {
+
+        System.out.println("Ingresar el ID del miembro que desea obtener");
+
+        // Solicitar ID y buscar el miembro por ID en DB.
+        Integer id = SCANNER.nextInt();
+        MemberDAO dao = new MemberDAOImpl();
+        MemberDTO member = dao.getByID(id);
+
+        System.out.println(member);
+
+    }
+
+    public static void deleteMember() {
+
+        Integer id = SCANNER.nextInt();
+        MemberDAO dao = new MemberDAOImpl();
+        dao.delete(id);
+
+    }
 }
