@@ -25,7 +25,8 @@ public class FeeCollectionSystem {
                     break;
                 //ACTUALIZAR DATOS SOCIO    
                 case 2:
-                    System.out.println("---- Se agrego el miembro correctamente ----");
+                    AppMenu.updateInfoMember();
+                    System.out.println("---- Se actualizo la información del miembro correctamente ----");
                     break;
                 //SALIR    
                 case 3:

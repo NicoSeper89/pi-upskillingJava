@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Logic method addMember of AppMenu and changes in the scanner (final static now)">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Add comments and refactor-rename.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/utilities/DataScannerString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/DataScannerString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidatorString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidatorString.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693369592475</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Add comments and refactor-rename.">
+      <option name="closed" value="true" />
+      <created>1693456537738</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1693456537738</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -329,7 +332,8 @@
     <MESSAGE value="InputValidator interface and implementation of its validate method in InputValidatorString to check correct scanner data." />
     <MESSAGE value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
     <MESSAGE value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
+    <MESSAGE value="Add comments and refactor-rename." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add comments and refactor-rename." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -73,6 +73,40 @@ public class AppMenu {
 
     }
 
-    public static void updateMember() {
+    public static void updateInfoMember() {
+
+        System.out.println("Ingrese el ID del Miembro que desea actualizar");
+
+        // Solicitar ID y buscar el miembro por ID para saber si existe en DB.
+        Integer id = SCANNER.nextInt();
+        MemberDAO dao = new MemberDAOImpl();
+        MemberDTO member = dao.getByID(id);
+
+        System.out.println(member);
+        SCANNER.nextLine();
+
+        //Scanner de datos
+        DataScannerString stringScanner = new DataScannerString();
+
+        //Solicitar datos de Miembro
+        String name = stringScanner.enter("Nombre", "name");
+        String surname = stringScanner.enter("Apellido", "surname");
+        String category = stringScanner.enter("Categoría", "category");
+        String address = stringScanner.enter("Dirección", "address");
+        String phone = stringScanner.enter("Teléfono", "phone");
+        String email = stringScanner.enter("Email", "email");
+
+        //Crear DTO Miembro y almacenarlo en DB
+        member.setName(name);
+        member.setSurname(surname);
+        member.setCategory(category);
+        member.setAddress(address);
+        member.setPhone(phone);
+        member.setEmail(email);
+
+        dao.update(member);
+
     }
+
+
 }
