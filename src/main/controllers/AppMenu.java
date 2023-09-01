@@ -1,7 +1,10 @@
 package main.controllers;
 
+import main.dao.FeeDAO;
 import main.dao.MemberDAO;
+import main.dao.dto.FeeDTO;
 import main.dao.dto.MemberDTO;
+import main.dao.implH2.FeeDAOImpl;
 import main.dao.implH2.MemberDAOImpl;
 import main.exceptions.ScanDataException;
 import main.utilities.DataScannerString;
@@ -22,8 +25,9 @@ public class AppMenu {
         System.out.println("3 - Ver lista de Miembros");
         System.out.println("4 - Buscar Miembro por ID");
         System.out.println("5 - Borrar Miembro");
+        System.out.println("6 - Generar Cuota a Miembro");
         System.out.println("----------------------------");
-        System.out.println("6 - Salir");
+        System.out.println("7 - Salir");
         
         return enterMenuOption();
     }
@@ -115,6 +119,7 @@ public class AppMenu {
 
     public static void getAllMembers() {
 
+        //Obtener todos los Miembros
         MemberDAO dao = new MemberDAOImpl();
 
         List<MemberDTO> memberList = dao.getAll();
@@ -131,7 +136,7 @@ public class AppMenu {
 
         System.out.println("Ingresar el ID del miembro que desea obtener");
 
-        // Solicitar ID y buscar el miembro por ID en DB.
+        // Solicitar ID y buscar Miembro por ID.
         Integer id = SCANNER.nextInt();
         MemberDAO dao = new MemberDAOImpl();
         MemberDTO member = dao.getByID(id);
@@ -142,9 +147,38 @@ public class AppMenu {
 
     public static void deleteMember() {
 
+        System.out.println("Ingresar el ID del miembro que desea eliminar");
+
         Integer id = SCANNER.nextInt();
         MemberDAO dao = new MemberDAOImpl();
         dao.delete(id);
 
+    }
+
+    public static void generateMemberFee() {
+
+        System.out.println("Ingresar el ID del Miembro al que desea generar Cuota");
+
+        try {
+
+
+        // Solicitar ID y buscar Miembro por ID para comprobar que exista.
+        Integer id = SCANNER.nextInt();
+        MemberDAO memberDao = new MemberDAOImpl();
+        MemberDTO member = memberDao.getByID(id);
+
+        System.out.println(member);
+        System.out.println("-------------------------------");
+        System.out.println("Ingresar el importe de la cuota");
+
+        Integer amount = SCANNER.nextInt();
+        FeeDAO feeDao = new FeeDAOImpl();
+        FeeDTO fee = new FeeDTO(amount, member);
+
+        feeDao.insert(fee);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
     }
 }

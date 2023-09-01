@@ -40,8 +40,12 @@ public class FeeCollectionSystem {
                 case 5:
                     AppMenu.deleteMember();
                     break;
-                //SALIR
+                //GENERAR CUOTA A MIEMBRO
                 case 6:
+                    AppMenu.generateMemberFee();
+                    break;
+                //SALIR
+                case 7:
                     exit = true;
                     break;
             }
