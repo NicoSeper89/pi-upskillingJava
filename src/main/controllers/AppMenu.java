@@ -18,9 +18,9 @@ public class AppMenu {
 
     public static Integer showMenu() {
         //MENU PRINCIPAL
-        System.out.println("------------MENU------------");
-        System.out.println("---- Ingrese una opción ----");
-        System.out.println("----------------------------");
+        System.out.println("----------------MENU----------------");
+        System.out.println("-------- Ingrese una opción --------");
+        System.out.println("------------------------------------");
         System.out.println("1 - Agregar Miembro");
         System.out.println("2 - Actualizar Información de Miembro");
         System.out.println("3 - Ver lista de Miembros");
@@ -30,8 +30,8 @@ public class AppMenu {
         System.out.println("7 - Actualizar Información de Cuota");
         System.out.println("8 - Ver lista de cuotas");
         System.out.println("9 - Buscar Cuota por ID");
-        System.out.println("----------------------------");
         System.out.println("10 - Salir");
+        System.out.println("------------------------------------");
 
         return enterMenuOption();
     }
@@ -42,27 +42,16 @@ public class AppMenu {
 
         Integer res = null;
 
-        while (res == null) {
-            try {
-                if (SCANNER.hasNextInt()) {
-                    res = SCANNER.nextInt();
-                    if (res < 1 || res > 10) {
-                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 10");
-                    }
-                } else {
-                    throw new ScanDataException("Opción Invalida. Valor no numérico.");
-                }
-            } catch (ScanDataException e) {
-                res = null;
-                e.printStackTrace();
-                System.out.println("Ingrese una opción correcta.");
-            } finally {
-                SCANNER.nextLine();
-            }
-        }
+        //Scanner de Integer con
+        DataScannerInteger integerScanner = new DataScannerInteger();
+        res = integerScanner.enter("Op", "menuOption");
+
+        SCANNER.nextLine();
 
         return res;
-    };
+    }
+
+    ;
 
     public static void addMember() {
 

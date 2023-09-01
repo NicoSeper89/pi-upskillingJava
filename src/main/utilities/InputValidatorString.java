@@ -40,7 +40,9 @@ public class InputValidatorString implements InputValidator<String> {
                 if (!matcher.matches()) throw new ScanDataException("El campo debe ser un email valido");
                 return true;
             default:
-                throw new RuntimeException("%ERROR_INESPERADO%");
+                throw new RuntimeException("%ERROR_INESPERADO: valor de inputType \""
+                        + inputType
+                        + "\" no reconocido: " );
         }
     }
 }
