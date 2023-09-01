@@ -26,24 +26,26 @@ public class AppMenu {
         System.out.println("4 - Buscar Miembro por ID");
         System.out.println("5 - Borrar Miembro");
         System.out.println("6 - Generar Cuota a Miembro");
+        System.out.println("7 - Ver lista de cuotas");
+        System.out.println("8 - Buscar Cuota por ID");
         System.out.println("----------------------------");
-        System.out.println("7 - Salir");
-        
+        System.out.println("9 - Salir");
+
         return enterMenuOption();
     }
 
     private static Integer enterMenuOption() {
 
         //Pedir opción menu principal y validar que sea correcta.
-        
+
         Integer res = null;
 
         while (res == null) {
             try {
                 if (SCANNER.hasNextInt()) {
                     res = SCANNER.nextInt();
-                    if (res < 1 || res > 6) {
-                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 6");
+                    if (res < 1 || res > 9) {
+                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 9");
                     }
                 } else {
                     throw new ScanDataException("Opción Invalida. Valor no numérico.");
@@ -124,7 +126,7 @@ public class AppMenu {
 
         List<MemberDTO> memberList = dao.getAll();
 
-        for (MemberDTO m: memberList) {
+        for (MemberDTO m : memberList) {
 
             System.out.println(m);
 
@@ -134,9 +136,9 @@ public class AppMenu {
 
     public static void getMemberById() {
 
-        System.out.println("Ingresar el ID del miembro que desea obtener");
+        System.out.println("Ingresar el ID del Miembro que desea obtener");
 
-        // Solicitar ID y buscar Miembro por ID.
+        // Solicitar ID y buscar Miembro por ID en DB.
         Integer id = SCANNER.nextInt();
         MemberDAO dao = new MemberDAOImpl();
         MemberDTO member = dao.getByID(id);
@@ -162,20 +164,54 @@ public class AppMenu {
         try {
 
 
-        // Solicitar ID y buscar Miembro por ID para comprobar que exista.
-        Integer id = SCANNER.nextInt();
-        MemberDAO memberDao = new MemberDAOImpl();
-        MemberDTO member = memberDao.getByID(id);
+            // Solicitar ID y buscar Miembro por ID para comprobar que exista.
+            Integer id = SCANNER.nextInt();
+            MemberDAO memberDao = new MemberDAOImpl();
+            MemberDTO member = memberDao.getByID(id);
 
-        System.out.println(member);
-        System.out.println("-------------------------------");
-        System.out.println("Ingresar el importe de la cuota");
+            System.out.println(member);
+            System.out.println("-------------------------------");
+            System.out.println("Ingresar el importe de la cuota");
 
-        Integer amount = SCANNER.nextInt();
-        FeeDAO feeDao = new FeeDAOImpl();
-        FeeDTO fee = new FeeDTO(amount, member);
+            Integer amount = SCANNER.nextInt();
+            FeeDAO feeDao = new FeeDAOImpl();
+            FeeDTO fee = new FeeDTO(amount, member);
 
-        feeDao.insert(fee);
+            feeDao.insert(fee);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void getAllFees() {
+
+        try {
+            //Obtener todas las Cuotas
+            FeeDAO dao = new FeeDAOImpl();
+
+            List<FeeDTO> feeList = dao.getAll();
+
+            for (FeeDTO f : feeList) {
+                System.out.println(f);
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void getFeeById() {
+
+        System.out.println("Ingresar el ID de la Cuota que desea obtener");
+
+        try {
+            // Solicitar ID y buscar Cuota por ID en DB.
+            Integer id = SCANNER.nextInt();
+            FeeDAO dao = new FeeDAOImpl();
+            FeeDTO fee = dao.getByID(id);
+
+            System.out.println(fee);
 
         } catch (RuntimeException e) {
             e.printStackTrace();

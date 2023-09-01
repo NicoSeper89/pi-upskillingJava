@@ -44,8 +44,16 @@ public class FeeCollectionSystem {
                 case 6:
                     AppMenu.generateMemberFee();
                     break;
-                //SALIR
+                //OBTENER TODAS LAS CUOTAS
                 case 7:
+                    AppMenu.getAllFees();
+                    break;
+                //BUSCAR CUOTA POR ID
+                case 8:
+                    AppMenu.getFeeById();
+                    break;
+                //SALIR
+                case 9:
                     exit = true;
                     break;
             }
