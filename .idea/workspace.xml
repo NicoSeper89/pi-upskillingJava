@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Add comments and refactor-rename.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.utilities" />
       <recent name="dao.implH2" />
       <recent name="entities" />
       <recent name="dao.dto" />
@@ -293,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693456537738</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type.">
+      <option name="closed" value="true" />
+      <created>1693536630241</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1693536630241</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,7 +318,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit" />
     <MESSAGE value="Define Member and Fee classes/entities." />
     <MESSAGE value="JDBC Configuration." />
     <MESSAGE value="Define DAO and MemberDAO interfaces." />
@@ -333,7 +342,8 @@
     <MESSAGE value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
     <MESSAGE value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
     <MESSAGE value="Add comments and refactor-rename." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add comments and refactor-rename." />
+    <MESSAGE value="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type." />
+    <option name="LAST_COMMIT_MESSAGE" value="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

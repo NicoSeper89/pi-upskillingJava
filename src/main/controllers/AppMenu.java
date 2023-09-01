@@ -7,6 +7,7 @@ import main.dao.dto.MemberDTO;
 import main.dao.implH2.FeeDAOImpl;
 import main.dao.implH2.MemberDAOImpl;
 import main.exceptions.ScanDataException;
+import main.utilities.DataScannerInteger;
 import main.utilities.DataScannerString;
 
 import java.util.List;
@@ -26,10 +27,11 @@ public class AppMenu {
         System.out.println("4 - Buscar Miembro por ID");
         System.out.println("5 - Borrar Miembro");
         System.out.println("6 - Generar Cuota a Miembro");
-        System.out.println("7 - Ver lista de cuotas");
-        System.out.println("8 - Buscar Cuota por ID");
+        System.out.println("7 - Actualizar Información de Cuota");
+        System.out.println("8 - Ver lista de cuotas");
+        System.out.println("9 - Buscar Cuota por ID");
         System.out.println("----------------------------");
-        System.out.println("9 - Salir");
+        System.out.println("10 - Salir");
 
         return enterMenuOption();
     }
@@ -44,8 +46,8 @@ public class AppMenu {
             try {
                 if (SCANNER.hasNextInt()) {
                     res = SCANNER.nextInt();
-                    if (res < 1 || res > 9) {
-                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 9");
+                    if (res < 1 || res > 10) {
+                        throw new ScanDataException("Opción Invalida. Valores entre 1 - 10");
                     }
                 } else {
                     throw new ScanDataException("Opción Invalida. Valor no numérico.");
@@ -182,6 +184,31 @@ public class AppMenu {
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void updateFeeAmount() {
+
+        System.out.println("Ingresar el ID de la Cuota que desea actualizar el importe");
+
+        //Scanner de datos
+        DataScannerInteger integerScanner = new DataScannerInteger();
+
+        // Solicitar ID y buscar Cuota por ID para saber si existe en DB.
+        Integer id = integerScanner.enter("ID Cuota", "id");
+        FeeDAO dao = new FeeDAOImpl();
+        FeeDTO fee = dao.getByID(id);
+
+        System.out.println(fee);
+        SCANNER.nextLine();
+
+        //Solicitar datos de Cuota para actualizar
+        Integer amount = integerScanner.enter("Importe nuevo", "amount");
+
+        //Crear DTO Miembro y almacenarlo en DB
+        fee.setAmount(amount);
+
+        dao.update(fee);
+
     }
 
     public static void getAllFees() {

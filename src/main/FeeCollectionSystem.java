@@ -23,7 +23,7 @@ public class FeeCollectionSystem {
                     AppMenu.addMember();
                     System.out.println("---- Se agrego el miembro correctamente ----");
                     break;
-                //ACTUALIZAR DATOS MIEMBRO
+                //ACTUALIZAR INFORMACIÓN MIEMBRO
                 case 2:
                     AppMenu.updateInfoMember();
                     System.out.println("---- Se actualizo la información del miembro correctamente ----");
@@ -44,16 +44,20 @@ public class FeeCollectionSystem {
                 case 6:
                     AppMenu.generateMemberFee();
                     break;
-                //OBTENER TODAS LAS CUOTAS
+                //ACTUALIZAR IMPORTE DE UNA CUOTA
                 case 7:
+                    AppMenu.updateFeeAmount();
+                    break;
+                //OBTENER TODAS LAS CUOTAS
+                case 8:
                     AppMenu.getAllFees();
                     break;
                 //BUSCAR CUOTA POR ID
-                case 8:
+                case 9:
                     AppMenu.getFeeById();
                     break;
                 //SALIR
-                case 9:
+                case 10:
                     exit = true;
                     break;
             }

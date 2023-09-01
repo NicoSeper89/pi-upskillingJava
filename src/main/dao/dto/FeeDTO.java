@@ -3,7 +3,7 @@ package main.dao.dto;
 public class FeeDTO {
 
     private Integer id;
-    private final Integer amount;
+    private Integer amount;
     private String generationDate;
     private Boolean paid;
     private MemberDTO owner;
@@ -35,6 +35,8 @@ public class FeeDTO {
     public Integer getAmount() {
         return amount;
     }
+
+    public void setAmount(Integer amount) {this.amount = amount;}
 
     public String getGenerationDate() {
         return generationDate;
