@@ -48,16 +48,24 @@ public class FeeCollectionSystem {
                 case 7:
                     AppMenu.updateFeeAmount();
                     break;
-                //OBTENER TODAS LAS CUOTAS
+                //ACTUALIZAR CUOTA COMO PAGADA
                 case 8:
+                    AppMenu.payFee();
+                    break;
+                //OBTENER TODAS LAS CUOTAS
+                case 9:
                     AppMenu.getAllFees();
                     break;
                 //BUSCAR CUOTA POR ID
-                case 9:
+                case 10:
                     AppMenu.getFeeById();
                     break;
+                //ELIMINAR CUOTA POR ID
+                case 11:
+                    AppMenu.deleteFee();
+                    break;
                 //SALIR
-                case 10:
+                case 12:
                     exit = true;
                     break;
             }

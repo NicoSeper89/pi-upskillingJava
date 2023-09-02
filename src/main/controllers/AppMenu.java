@@ -6,7 +6,6 @@ import main.dao.dto.FeeDTO;
 import main.dao.dto.MemberDTO;
 import main.dao.implH2.FeeDAOImpl;
 import main.dao.implH2.MemberDAOImpl;
-import main.exceptions.ScanDataException;
 import main.utilities.DataScannerInteger;
 import main.utilities.DataScannerString;
 
@@ -24,13 +23,15 @@ public class AppMenu {
         System.out.println("1 - Agregar Miembro");
         System.out.println("2 - Actualizar Información de Miembro");
         System.out.println("3 - Ver lista de Miembros");
-        System.out.println("4 - Buscar Miembro por ID");
-        System.out.println("5 - Borrar Miembro");
+        System.out.println("4 - Buscar Miembro");
+        System.out.println("5 - Eliminar Miembro");
         System.out.println("6 - Generar Cuota a Miembro");
         System.out.println("7 - Actualizar Información de Cuota");
-        System.out.println("8 - Ver lista de cuotas");
-        System.out.println("9 - Buscar Cuota por ID");
-        System.out.println("10 - Salir");
+        System.out.println("8 - Actualizar Cuota como pagada");
+        System.out.println("9 - Ver lista de Cuotas");
+        System.out.println("10 - Buscar Cuota");
+        System.out.println("11 - Eliminar Cuota");
+        System.out.println("12 - Salir");
         System.out.println("------------------------------------");
 
         return enterMenuOption();
@@ -50,8 +51,6 @@ public class AppMenu {
 
         return res;
     }
-
-    ;
 
     public static void addMember() {
 
@@ -255,6 +254,35 @@ public class AppMenu {
 
     }
 
+    public static void payFee() {
+
+        try {
+
+            System.out.println("Ingresar el ID de la Cuota que desea marcar como pagada");
+
+            //Scanner de datos
+            DataScannerInteger integerScanner = new DataScannerInteger();
+
+            // Solicitar ID de Cuota y buscarla en DB.
+            Integer id = integerScanner.enter("ID Cuota", "id");
+            FeeDAO dao = new FeeDAOImpl();
+            FeeDTO fee = dao.getByID(id);
+
+            System.out.println(fee);
+            SCANNER.nextLine();
+
+            //Actualizar valor de propiedad paid de DTO como true (pagada).
+            fee.setPaid(true);
+
+            //Actualizar la Cuota en DB.
+            dao.update(fee);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
     public static void getAllFees() {
 
         try {
@@ -294,5 +322,26 @@ public class AppMenu {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    public static void deleteFee() {
+
+        try {
+
+            System.out.println("Ingresar el ID del Miembro que desea eliminar");
+
+            //Scanner de datos Integer
+            DataScannerInteger integerScanner = new DataScannerInteger();
+
+            // Solicitar ID de Cuota y eliminarla de DB.
+            Integer id = integerScanner.enter("ID Cuota", "id");
+            FeeDAO dao = new FeeDAOImpl();
+            dao.delete(id);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 }
