@@ -11,9 +11,9 @@ public class DataScannerInteger implements DataScanner<Integer> {
     @Override
     public Integer enter(String title, String inputType) {
 
-        //Obtener dato con scanner
+        //Obtener dato Integer del usuario con Scanner
         //Pedirlo hasta que pase la validación de InputValidatorInteger()
-        //Devolver dato valido.
+        //Devolver dato.
 
         Boolean correct = false;
         Integer value = null;

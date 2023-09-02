@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO{
 
     @Override
-    public PersonDTO mapToDTO(ResultSet rs) throws SQLException {
+    public MemberDTO mapToDTO(ResultSet rs) throws SQLException {
 
         //Mapear ResultSet a MemberDTO al pedir un Miembro a DB.
         //Devuelve el Miembro
@@ -35,7 +35,7 @@ public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO
     @Override
     public Person mapToEntity(PersonDTO personDTO) {
 
-        //Mapear MemberDTO a entidad Member para guardar o actualizar Miembro en DB.
+        //Mapear MemberDTO a entidad Member.
 
         return new Member(
                 personDTO.getId(),

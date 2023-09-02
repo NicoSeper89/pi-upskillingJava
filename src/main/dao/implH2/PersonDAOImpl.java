@@ -34,7 +34,7 @@ public abstract class PersonDAOImpl<M extends PersonDTO> implements PersonDAO<M>
 
             //Comprobar si la Persona existe en DB.
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("No se pudo agregar a la Persona.");
+                throw new SQLException("No se pudo agregar la Persona en DB.");
             }
 
         } catch (SQLException e) {
@@ -65,7 +65,7 @@ public abstract class PersonDAOImpl<M extends PersonDTO> implements PersonDAO<M>
             Integer rs = statement.executeUpdate();
 
             if (rs == 0) {
-                throw new SQLException("No se pudo actualizar la información.");
+                throw new SQLException("No se pudo actualizar los datos de la Persona en DB.");
             }
 
         } catch (SQLException e) {
@@ -96,9 +96,9 @@ public abstract class PersonDAOImpl<M extends PersonDTO> implements PersonDAO<M>
             statement.setInt(1, id);
             Integer rs = statement.executeUpdate();
 
-            //Comprobar si se borro correctamente la Persona de DB.
+            //Comprobar si se eliminó correctamente la Persona de DB.
             if (rs == 0) {
-                throw new SQLException("No se pudo eliminar a la Persona.");
+                throw new SQLException("No se pudo eliminar a la Persona en DB.");
             }
 
         } catch (SQLException e) {
@@ -176,7 +176,7 @@ public abstract class PersonDAOImpl<M extends PersonDTO> implements PersonDAO<M>
 
             //Comprobar si se obtuvo la Persona.
             if (!rs.next()) {
-                throw new SQLException("No se encontró el miembro que busca en DB.");
+                throw new SQLException("No se encontró la Persona que busca en DB.");
             }
 
             //Mapear resultado a PersonaDTO

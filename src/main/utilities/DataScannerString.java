@@ -9,6 +9,10 @@ public class DataScannerString implements DataScanner<String> {
     @Override
     public String enter(String title, String inputType) {
 
+        //Obtener dato String del usuario con Scanner
+        //Pedirlo hasta que pase la validación de InputValidatorInteger()
+        //Devolver dato.
+
         Boolean correct = false;
         String value = null;
         InputValidatorString inputValidator = new InputValidatorString();

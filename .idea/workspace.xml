@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Refactor validation of main menu options.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/DataScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/DataScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/DataScannerInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/DataScannerInteger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/DataScannerString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/DataScannerString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidatorInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidatorInteger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidatorString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidatorString.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +51,8 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Nico/repos/pi-upskillingJava/jars/h2-2.2.220.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -303,7 +313,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693536630241</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Add updateFeeAmount method in AppMenu class to update amount of a fee in DB.">
+      <option name="closed" value="true" />
+      <created>1693536965518</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1693536965518</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Refactor validation of main menu options.">
+      <option name="closed" value="true" />
+      <created>1693612787188</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1693612787188</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,8 +344,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Define Member and Fee classes/entities." />
-    <MESSAGE value="JDBC Configuration." />
     <MESSAGE value="Define DAO and MemberDAO interfaces." />
     <MESSAGE value="Define MemberDAO class." />
     <MESSAGE value="Add MemberDTO class." />
@@ -343,7 +367,9 @@
     <MESSAGE value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
     <MESSAGE value="Add comments and refactor-rename." />
     <MESSAGE value="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Define the DataScannerInteger and InputValidatorInteger classes to get numeric data and validate it based on the requested input type." />
+    <MESSAGE value="Add updateFeeAmount method in AppMenu class to update amount of a fee in DB." />
+    <MESSAGE value="Refactor validation of main menu options." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor validation of main menu options." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -55,108 +55,152 @@ public class AppMenu {
 
     public static void addMember() {
 
-        System.out.println("Ingresar datos del miembro");
+        try {
 
-        //Scanner de datos
-        DataScannerString stringScanner = new DataScannerString();
+            System.out.println("Ingresar datos del miembro");
 
-        //Solicitar datos de Miembro a Usuario.
-        String name = stringScanner.enter("Nombre", "name");
-        String surname = stringScanner.enter("Apellido", "surname");
-        String category = stringScanner.enter("Categoría", "category");
-        String address = stringScanner.enter("Dirección", "address");
-        String phone = stringScanner.enter("Teléfono", "phone");
-        String email = stringScanner.enter("Email", "email");
+            //Scanner de datos
+            DataScannerString stringScanner = new DataScannerString();
 
-        //Crear Miembro y almacenarlo en DB
-        MemberDTO member = new MemberDTO(name, surname, category, address, phone, email);
-        MemberDAO dao = new MemberDAOImpl();
-        dao.insert(member);
+            //Solicitar datos de nuevo Miembro.
+            String name = stringScanner.enter("Nombre", "name");
+            String surname = stringScanner.enter("Apellido", "surname");
+            String category = stringScanner.enter("Categoría", "category");
+            String address = stringScanner.enter("Dirección", "address");
+            String phone = stringScanner.enter("Teléfono", "phone");
+            String email = stringScanner.enter("Email", "email");
+
+            //Crear Miembro y almacenarlo en DB
+            MemberDTO member = new MemberDTO(name, surname, category, address, phone, email);
+            MemberDAO dao = new MemberDAOImpl();
+            dao.insert(member);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error:" + e.getMessage());
+        }
+
 
     }
 
     public static void updateInfoMember() {
 
-        System.out.println("Ingresar el ID del Miembro que desea actualizar");
+        try {
 
-        // Solicitar ID y buscar el miembro por ID para saber si existe en DB.
-        Integer id = SCANNER.nextInt();
-        MemberDAO dao = new MemberDAOImpl();
-        MemberDTO member = dao.getByID(id);
+            System.out.println("Ingresar el ID del Miembro que desea actualizar");
 
-        System.out.println(member);
-        SCANNER.nextLine();
+            //Scanner de datos Integer
+            DataScannerInteger integerScanner = new DataScannerInteger();
 
-        //Scanner de datos
-        DataScannerString stringScanner = new DataScannerString();
+            // Solicitar ID de Miembro y buscarlo en DB.
+            Integer id = integerScanner.enter("ID Miembro", "id");
+            MemberDAO dao = new MemberDAOImpl();
+            MemberDTO member = dao.getByID(id);
 
-        //Solicitar datos de Miembro
-        String name = stringScanner.enter("Nombre", "name");
-        String surname = stringScanner.enter("Apellido", "surname");
-        String category = stringScanner.enter("Categoría", "category");
-        String address = stringScanner.enter("Dirección", "address");
-        String phone = stringScanner.enter("Teléfono", "phone");
-        String email = stringScanner.enter("Email", "email");
+            System.out.println(member);
+            SCANNER.nextLine();
 
-        //Crear DTO Miembro y almacenarlo en DB
-        member.setName(name);
-        member.setSurname(surname);
-        member.setCategory(category);
-        member.setAddress(address);
-        member.setPhone(phone);
-        member.setEmail(email);
+            //Scanner de datos String
+            DataScannerString stringScanner = new DataScannerString();
 
-        dao.update(member);
+            //Solicitar datos de Miembro
+            String name = stringScanner.enter("Nombre", "name");
+            String surname = stringScanner.enter("Apellido", "surname");
+            String category = stringScanner.enter("Categoría", "category");
+            String address = stringScanner.enter("Dirección", "address");
+            String phone = stringScanner.enter("Teléfono", "phone");
+            String email = stringScanner.enter("Email", "email");
+
+            //Actualizar instancia MiembroDTO con la nueva información
+            member.setName(name);
+            member.setSurname(surname);
+            member.setCategory(category);
+            member.setAddress(address);
+            member.setPhone(phone);
+            member.setEmail(email);
+
+            dao.update(member);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
 
     }
 
     public static void getAllMembers() {
 
-        //Obtener todos los Miembros
-        MemberDAO dao = new MemberDAOImpl();
+        try {
 
-        List<MemberDTO> memberList = dao.getAll();
+            //Obtener todos los Miembros
+            MemberDAO dao = new MemberDAOImpl();
 
-        for (MemberDTO m : memberList) {
+            //Instancia Lista de MiembrosDTO obtenidos de DB
+            List<MemberDTO> memberList = dao.getAll();
 
-            System.out.println(m);
+            //Recorrer lista de MiembrosDTO imprimiendo sus datos.
+            for (MemberDTO m : memberList) {
+                System.out.println(m);
+            }
 
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
 
     }
 
     public static void getMemberById() {
 
-        System.out.println("Ingresar el ID del Miembro que desea obtener");
+        try {
 
-        // Solicitar ID y buscar Miembro por ID en DB.
-        Integer id = SCANNER.nextInt();
-        MemberDAO dao = new MemberDAOImpl();
-        MemberDTO member = dao.getByID(id);
+            //Scanner de datos Integer
+            DataScannerInteger integerScanner = new DataScannerInteger();
 
-        System.out.println(member);
+            // Solicitar ID de Miembro y buscarlo en DB.
+            Integer id = integerScanner.enter("ID Miembro", "id");
+            MemberDAO dao = new MemberDAOImpl();
+            MemberDTO member = dao.getByID(id);
 
+            System.out.println(member);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public static void deleteMember() {
 
-        System.out.println("Ingresar el ID del miembro que desea eliminar");
+        try {
 
-        Integer id = SCANNER.nextInt();
-        MemberDAO dao = new MemberDAOImpl();
-        dao.delete(id);
+            System.out.println("Ingresar el ID del Miembro que desea eliminar");
 
+            //Scanner de datos Integer
+            DataScannerInteger integerScanner = new DataScannerInteger();
+
+            // Solicitar ID de Miembro y eliminarlo en DB.
+            Integer id = integerScanner.enter("ID Miembro", "id");
+            MemberDAO dao = new MemberDAOImpl();
+            dao.delete(id);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public static void generateMemberFee() {
 
-        System.out.println("Ingresar el ID del Miembro al que desea generar Cuota");
-
         try {
 
+            System.out.println("Ingresar el ID del Miembro al que desea generar Cuota");
 
-            // Solicitar ID y buscar Miembro por ID para comprobar que exista.
-            Integer id = SCANNER.nextInt();
+            //Scanner de datos Integer
+            DataScannerInteger integerScanner = new DataScannerInteger();
+
+            // Solicitar ID Miembro y buscarlo en DB.
+            Integer id = integerScanner.enter("ID Miembro", "id");
             MemberDAO memberDao = new MemberDAOImpl();
             MemberDTO member = memberDao.getByID(id);
 
@@ -164,56 +208,70 @@ public class AppMenu {
             System.out.println("-------------------------------");
             System.out.println("Ingresar el importe de la cuota");
 
-            Integer amount = SCANNER.nextInt();
+            // Solicitar Importe de la Cuota a crear e instanciar su DTO con el importe.
+            Integer amount = integerScanner.enter("Importe de Cuota", "amount");
             FeeDAO feeDao = new FeeDAOImpl();
             FeeDTO fee = new FeeDTO(amount, member);
 
+            //Guardar nueva Cuota asociada al Miembro en DB.
             feeDao.insert(fee);
 
         } catch (RuntimeException e) {
             e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
     public static void updateFeeAmount() {
 
-        System.out.println("Ingresar el ID de la Cuota que desea actualizar el importe");
+        try {
 
-        //Scanner de datos
-        DataScannerInteger integerScanner = new DataScannerInteger();
+            System.out.println("Ingresar el ID de la Cuota que desea actualizar el importe");
 
-        // Solicitar ID y buscar Cuota por ID para saber si existe en DB.
-        Integer id = integerScanner.enter("ID Cuota", "id");
-        FeeDAO dao = new FeeDAOImpl();
-        FeeDTO fee = dao.getByID(id);
+            //Scanner de datos
+            DataScannerInteger integerScanner = new DataScannerInteger();
 
-        System.out.println(fee);
-        SCANNER.nextLine();
+            // Solicitar ID de Cuota y buscarla en DB.
+            Integer id = integerScanner.enter("ID Cuota", "id");
+            FeeDAO dao = new FeeDAOImpl();
+            FeeDTO fee = dao.getByID(id);
 
-        //Solicitar datos de Cuota para actualizar
-        Integer amount = integerScanner.enter("Importe nuevo", "amount");
+            System.out.println(fee);
+            SCANNER.nextLine();
 
-        //Crear DTO Miembro y almacenarlo en DB
-        fee.setAmount(amount);
+            //Solicitar importe nuevo para la Cuota Obtenida de DB.
+            Integer amount = integerScanner.enter("Importe nuevo", "amount");
 
-        dao.update(fee);
+            //Actualizar importe de la Cuota
+            fee.setAmount(amount);
+
+            //Actualizar la Cuota en DB.
+            dao.update(fee);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
 
     }
 
     public static void getAllFees() {
 
         try {
-            //Obtener todas las Cuotas
+            //Obtener todas las Cuotas de DB.
             FeeDAO dao = new FeeDAOImpl();
 
+            //Instancia Lista de DTO de Cuotas y guardar todas las obtenidas de DB.
             List<FeeDTO> feeList = dao.getAll();
 
+            //Recorrer lista de Cuotas imprimiendo sus datos.
             for (FeeDTO f : feeList) {
                 System.out.println(f);
             }
 
         } catch (RuntimeException e) {
             e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -222,8 +280,11 @@ public class AppMenu {
         System.out.println("Ingresar el ID de la Cuota que desea obtener");
 
         try {
-            // Solicitar ID y buscar Cuota por ID en DB.
-            Integer id = SCANNER.nextInt();
+            //Scanner de datos
+            DataScannerInteger integerScanner = new DataScannerInteger();
+
+            // Solicitar ID de Cuota y buscarla en DB.
+            Integer id = integerScanner.enter("ID Cuota", "id");
             FeeDAO dao = new FeeDAOImpl();
             FeeDTO fee = dao.getByID(id);
 
@@ -231,6 +292,7 @@ public class AppMenu {
 
         } catch (RuntimeException e) {
             e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
