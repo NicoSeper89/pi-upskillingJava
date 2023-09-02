@@ -18,7 +18,7 @@ import java.util.List;
 
 public class FeeDAOImpl implements FeeDAO {
 
-    static final String INSERT = "INSERT INTO fcsdb.fee (amount, local_date, owner_id)" +
+    static final String INSERT = "INSERT INTO fcsdb.fee (amount, generated_date, owner_member_id)" +
             "VALUES(?, ?, ?);";
 
     static final String UPLOAD = "UPDATE fcsdb.fee " +
@@ -181,9 +181,9 @@ public class FeeDAOImpl implements FeeDAO {
 
                 Integer id = rs.getInt("id");
                 Integer amount = rs.getInt("amount");
-                String generationDate = rs.getString("local_date");
+                String generationDate = rs.getString("generated_date");
                 Boolean paid = rs.getBoolean("paid");
-                Integer id_owner = rs.getInt("owner_id");
+                Integer id_owner = rs.getInt("owner_member_id");
 
                 FeeDTO fee = new FeeDTO(id, amount, generationDate, paid, new MemberDTO(id_owner));
 
@@ -228,9 +228,9 @@ public class FeeDAOImpl implements FeeDAO {
             //Crear DTO de Cuota con el resultado de la consulta a DB.
             Integer feeID = rs.getInt("id");
             Integer amount = rs.getInt("amount");
-            String generationDate = rs.getString("local_date");
+            String generationDate = rs.getString("generated_date");
             Boolean paid = rs.getBoolean("paid");
-            Integer id_owner = rs.getInt("owner_id");
+            Integer id_owner = rs.getInt("owner_member_id");
 
             FeeDTO fee = new FeeDTO(feeID, amount, generationDate, paid, new MemberDTO(id_owner));
 

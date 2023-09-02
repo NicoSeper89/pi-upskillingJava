@@ -4,14 +4,14 @@ public class Fee {
 
     private Integer id;
     private Integer amount;
-    private String generationDate;
+    private String generatedDate;
     private Boolean paid;
     private Member owner;
 
-    public Fee(Integer id, Integer amount, String generationDate, Member owner) {
+    public Fee(Integer id, Integer amount, String generatedDate, Member owner) {
         this.id = id;
         this.amount = amount;
-        this.generationDate = generationDate;
+        this.generatedDate = generatedDate;
         this.owner = owner;
         this.paid = false;
     }
@@ -40,8 +40,8 @@ public class Fee {
         return owner;
     }
 
-    public String getGenerationDate() {
-        return generationDate;
+    public String getGeneratedDate() {
+        return generatedDate;
     }
 
     public Boolean getPaid() {

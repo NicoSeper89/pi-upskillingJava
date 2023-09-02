@@ -98,7 +98,7 @@ public abstract class PersonDAOImpl<M extends PersonDTO> implements PersonDAO<M>
 
             //Comprobar si se eliminó correctamente la Persona de DB.
             if (rs == 0) {
-                throw new SQLException("No se pudo eliminar a la Persona en DB.");
+                throw new SQLException("Id incorrecto: No se pudo eliminar a la Persona en DB.");
             }
 
         } catch (SQLException e) {

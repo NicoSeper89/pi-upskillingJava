@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Refactoring, renaming, adding comments and exception handling.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Add payFee and deleteFee methods in AppMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidatorInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidatorInteger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entities/Fee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entities/Fee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +41,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Nico/repos/pi-upskillingJava/jars/h2-2.2.220.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nicos/Desktop/proyectoIntegrador-expenseReportApp-modulo4&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -328,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693628422311</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add payFee and deleteFee methods in AppMenu">
+      <option name="closed" value="true" />
+      <created>1693630790588</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1693630790588</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,7 +353,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Define MemberDAO class." />
     <MESSAGE value="Add MemberDTO class." />
     <MESSAGE value="Fix Member class." />
     <MESSAGE value="Rename MemberDAO class and implement insert() method" />
@@ -368,7 +377,8 @@
     <MESSAGE value="Add updateFeeAmount method in AppMenu class to update amount of a fee in DB." />
     <MESSAGE value="Refactor validation of main menu options." />
     <MESSAGE value="Refactoring, renaming, adding comments and exception handling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring, renaming, adding comments and exception handling." />
+    <MESSAGE value="Add payFee and deleteFee methods in AppMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add payFee and deleteFee methods in AppMenu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

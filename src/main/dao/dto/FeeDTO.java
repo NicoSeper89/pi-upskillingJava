@@ -4,14 +4,14 @@ public class FeeDTO {
 
     private Integer id;
     private Integer amount;
-    private String generationDate;
+    private String generatedDate;
     private Boolean paid;
     private MemberDTO owner;
 
-    public FeeDTO(Integer id, Integer amount, String generationDate, Boolean paid, MemberDTO owner) {
+    public FeeDTO(Integer id, Integer amount, String generatedDate, Boolean paid, MemberDTO owner) {
         this.id = id;
         this.amount = amount;
-        this.generationDate = generationDate;
+        this.generatedDate = generatedDate;
         this.paid = paid;
         this.owner = owner;
     }
@@ -38,8 +38,8 @@ public class FeeDTO {
 
     public void setAmount(Integer amount) {this.amount = amount;}
 
-    public String getGenerationDate() {
-        return generationDate;
+    public String getGeneratedDate() {
+        return generatedDate;
     }
 
     public Boolean getPaid() {
@@ -59,7 +59,7 @@ public class FeeDTO {
         return "FeeDTO{" +
                 "id=" + id +
                 ", amount=" + amount +
-                ", generationDate='" + generationDate + '\'' +
+                ", generationDate='" + generatedDate + '\'' +
                 ", paid=" + paid +
                 ", owner=" + owner.getId() +
                 '}';

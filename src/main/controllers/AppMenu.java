@@ -328,7 +328,7 @@ public class AppMenu {
 
         try {
 
-            System.out.println("Ingresar el ID del Miembro que desea eliminar");
+            System.out.println("Ingresar el ID de la Cuota que desea eliminar");
 
             //Scanner de datos Integer
             DataScannerInteger integerScanner = new DataScannerInteger();
