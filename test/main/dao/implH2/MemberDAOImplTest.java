@@ -60,4 +60,35 @@ class MemberDAOImplTest {
 
     }
 
+    @Test
+    void update_ShouldUpdateMember_WhenValidMemberDto() throws SQLException {
+
+        // GIVEN
+        PersonDTO memberDTO = new MemberDTO(
+                1,
+                "Juan",
+                "Gomez",
+                "A",
+                "Moreno 54",
+                "555-453-458",
+                "juangomez@hotmail.com"
+        );
+
+        when(mockPreparedStatement.executeUpdate()).thenReturn(1);
+
+        // WHEN
+        memberDao.update(memberDTO);
+
+        // THEN
+        verify(mockPreparedStatement).setString(1, memberDTO.getName());
+        verify(mockPreparedStatement).setString(2, memberDTO.getSurname());
+        verify(mockPreparedStatement).setString(3, memberDTO.getCategory());
+        verify(mockPreparedStatement).setString(4, memberDTO.getAddress());
+        verify(mockPreparedStatement).setString(5, memberDTO.getPhone());
+        verify(mockPreparedStatement).setString(6, memberDTO.getEmail());
+        verify(mockPreparedStatement).setInt(7, memberDTO.getId());
+        verify(mockPreparedStatement).executeUpdate();
+    }
+
+
 }
