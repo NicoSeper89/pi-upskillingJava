@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Refactoring and renaming.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +66,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberDAOImplTest.insert_ShouldInsertMember_WhenValidMemberDto">
+  <component name="RunManager" selected="JUnit.FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto">
     <configuration name="FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
@@ -87,7 +83,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberDAOImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberDAOImplTest.delete_ShouldDeleteExpense_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
         <pattern>
@@ -97,28 +93,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="main.dao.implH2" />
       <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pi-upskillingJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.dao.implH2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="main.dao.implH2" />
-      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
-      <option name="METHOD_NAME" value="insert_ShouldInsertFee_WhenValidFeeDto" />
+      <option name="METHOD_NAME" value="delete_ShouldDeleteExpense_WhenValidId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberDAOImplTest.insert_ShouldInsertMember_WhenValidMemberDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberDAOImplTest.delete_ShouldDeleteMember_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
         <pattern>
@@ -128,13 +109,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="main.dao.implH2" />
       <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
-      <option name="METHOD_NAME" value="insert_ShouldInsertMember_WhenValidMemberDto" />
+      <option name="METHOD_NAME" value="delete_ShouldDeleteMember_WhenValidId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDAOImplTest.insert_ShouldCallMapToEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberDAOImplTest.getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
         <pattern>
@@ -143,8 +124,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="main.dao.implH2" />
-      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.PersonDAOImplTest" />
-      <option name="METHOD_NAME" value="insert_ShouldCallMapToEntity" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
+      <option name="METHOD_NAME" value="getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberDAOImplTest.getById_ShouldReturnMemberDto_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
+      <option name="METHOD_NAME" value="getById_ShouldReturnMemberDto_WhenValidId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -152,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MemberDAOImplTest.insert_ShouldInsertMember_WhenValidMemberDto" />
-        <item itemvalue="JUnit.MemberDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" />
         <item itemvalue="JUnit.FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" />
-        <item itemvalue="JUnit.MemberDAOImplTest" />
-        <item itemvalue="JUnit.PersonDAOImplTest.insert_ShouldCallMapToEntity" />
+        <item itemvalue="JUnit.MemberDAOImplTest.getById_ShouldReturnMemberDto_WhenValidId" />
+        <item itemvalue="JUnit.MemberDAOImplTest.getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData" />
+        <item itemvalue="JUnit.MemberDAOImplTest.delete_ShouldDeleteMember_WhenValidId" />
+        <item itemvalue="JUnit.MemberDAOImplTest.delete_ShouldDeleteExpense_WhenValidId" />
       </list>
     </recent_temporary>
   </component>
@@ -449,7 +446,55 @@
       <option name="project" value="LOCAL" />
       <updated>1693695371808</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Changes to Connection JDBC in DAOS implementations. Fix test errors.">
+      <option name="closed" value="true" />
+      <created>1693763676401</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1693763676401</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Define MemberDAOImplTest and implement insert_ShouldInsertMember_WhenValidMemberDto() to test insert of MemberDAOImpl class">
+      <option name="closed" value="true" />
+      <created>1693764466515</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1693764466515</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Implement update_ShouldUpdateMember_WhenValidMemberDto() to test update method of MemberDAOImpl class">
+      <option name="closed" value="true" />
+      <created>1693765466678</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1693765466678</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Implement delete_ShouldDeleteMember_WhenValidId() to test delete method of MemberDAOImpl class.">
+      <option name="closed" value="true" />
+      <created>1693765808898</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1693765808898</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Implement getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData() to test getAll() method of MemberDAOImpl class.">
+      <option name="closed" value="true" />
+      <created>1693771726484</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1693771726484</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class.">
+      <option name="closed" value="true" />
+      <created>1693772510395</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1693772510395</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,12 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix Member class." />
-    <MESSAGE value="Rename MemberDAO class and implement insert() method" />
-    <MESSAGE value="Logic of update and delete methods implemented from MemberDAO interface." />
-    <MESSAGE value="Logic of getAll and getById methods implemented from MemberDAO interface." />
-    <MESSAGE value="Changes in Fee class" />
-    <MESSAGE value="Define FeeDAO interface and FeeDTO class." />
     <MESSAGE value="Define FeeDAOImpl class and implements insert method. Changes in Member, Fee and FeeDTO classes." />
     <MESSAGE value="Implement Update and Delete method of FeeDAO interface." />
     <MESSAGE value="Implement getAll and getById method of FeeDAO interface." />
@@ -489,7 +528,13 @@
     <MESSAGE value="Refactoring, renaming, adding comments and exception handling." />
     <MESSAGE value="Add payFee and deleteFee methods in AppMenu" />
     <MESSAGE value="Refactoring and renaming." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring and renaming." />
+    <MESSAGE value="Changes to Connection JDBC in DAOS implementations. Fix test errors." />
+    <MESSAGE value="Define MemberDAOImplTest and implement insert_ShouldInsertMember_WhenValidMemberDto() to test insert of MemberDAOImpl class" />
+    <MESSAGE value="Implement update_ShouldUpdateMember_WhenValidMemberDto() to test update method of MemberDAOImpl class" />
+    <MESSAGE value="Implement delete_ShouldDeleteMember_WhenValidId() to test delete method of MemberDAOImpl class." />
+    <MESSAGE value="Implement getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData() to test getAll() method of MemberDAOImpl class." />
+    <MESSAGE value="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
