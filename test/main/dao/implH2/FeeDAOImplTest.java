@@ -81,4 +81,19 @@ class FeeDAOImplTest {
         verify(mockPreparedStatement).executeUpdate();
     }
 
+    @Test
+    void delete_ShouldDeleteFee_WhenValidId() throws SQLException {
+
+        // GIVEN
+        int feeId = 1;
+
+        when(mockPreparedStatement.executeUpdate()).thenReturn(1);
+
+        // WHEN
+        feeDao.delete(feeId);
+
+        // THEN
+        verify(mockPreparedStatement).setInt(1, feeId);
+        verify(mockPreparedStatement).executeUpdate();
+    }
 }
