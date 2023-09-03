@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Define FeeDAOImplTest and implement insert_ShouldInsertFee_WhenValidFeeDto() to test the insert() method of the FeeDAOImpl class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/main/dao/implH2/FeeDAOImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/main/dao/implH2/FeeDAOImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,23 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto">
+  <component name="RunManager" selected="JUnit.FeeDAOImplTest.delete_ShouldDeleteFee_WhenValidId">
+    <configuration name="FeeDAOImplTest.delete_ShouldDeleteFee_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.FeeDAOImplTest" />
+      <option name="METHOD_NAME" value="delete_ShouldDeleteFee_WhenValidId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
@@ -83,7 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberDAOImplTest.delete_ShouldDeleteExpense_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FeeDAOImplTest.update_ShouldUpdateExpense_WhenValidExpenseDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
         <pattern>
@@ -92,24 +109,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="main.dao.implH2" />
-      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
-      <option name="METHOD_NAME" value="delete_ShouldDeleteExpense_WhenValidId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberDAOImplTest.delete_ShouldDeleteMember_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pi-upskillingJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.dao.implH2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="main.dao.implH2" />
-      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
-      <option name="METHOD_NAME" value="delete_ShouldDeleteMember_WhenValidId" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.FeeDAOImplTest" />
+      <option name="METHOD_NAME" value="update_ShouldUpdateExpense_WhenValidExpenseDto" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FeeDAOImplTest.delete_ShouldDeleteFee_WhenValidId" />
+        <item itemvalue="JUnit.FeeDAOImplTest.update_ShouldUpdateExpense_WhenValidExpenseDto" />
         <item itemvalue="JUnit.FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" />
         <item itemvalue="JUnit.MemberDAOImplTest.getById_ShouldReturnMemberDto_WhenValidId" />
         <item itemvalue="JUnit.MemberDAOImplTest.getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData" />
-        <item itemvalue="JUnit.MemberDAOImplTest.delete_ShouldDeleteMember_WhenValidId" />
-        <item itemvalue="JUnit.MemberDAOImplTest.delete_ShouldDeleteExpense_WhenValidId" />
       </list>
     </recent_temporary>
   </component>
@@ -494,7 +495,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693772510395</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Define FeeDAOImplTest and implement insert_ShouldInsertFee_WhenValidFeeDto() to test the insert() method of the FeeDAOImpl class.">
+      <option name="closed" value="true" />
+      <created>1693779338425</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1693779338425</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,7 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Define FeeDAOImpl class and implements insert method. Changes in Member, Fee and FeeDTO classes." />
     <MESSAGE value="Implement Update and Delete method of FeeDAO interface." />
     <MESSAGE value="Implement getAll and getById method of FeeDAO interface." />
     <MESSAGE value="Define abstract class PersonDTO and interface PersonDAO." />
@@ -534,7 +542,8 @@
     <MESSAGE value="Implement delete_ShouldDeleteMember_WhenValidId() to test delete method of MemberDAOImpl class." />
     <MESSAGE value="Implement getAll_ShouldReturnListOfMembersDtos_WhenDataBaseHasData() to test getAll() method of MemberDAOImpl class." />
     <MESSAGE value="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement getByID_ShouldReturnMemberDto_WhenValidId() to test getByID() method of MemberDAOImpl class." />
+    <MESSAGE value="Define FeeDAOImplTest and implement insert_ShouldInsertFee_WhenValidFeeDto() to test the insert() method of the FeeDAOImpl class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Define FeeDAOImplTest and implement insert_ShouldInsertFee_WhenValidFeeDto() to test the insert() method of the FeeDAOImpl class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

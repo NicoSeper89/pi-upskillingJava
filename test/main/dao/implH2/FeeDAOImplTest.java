@@ -2,6 +2,7 @@ package main.dao.implH2;
 
 import main.dao.dto.FeeDTO;
 import main.dao.dto.MemberDTO;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -13,10 +14,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
 
 class FeeDAOImplTest {
 
@@ -58,6 +61,24 @@ class FeeDAOImplTest {
         verify(mockPreparedStatement).setInt(3, feeDto.getOwner().getId());
         verify(mockPreparedStatement).executeUpdate();
 
+    }
+
+    @Test
+    void update_ShouldUpdateFee_WhenValidFeeDto() throws SQLException {
+
+        // GIVEN
+        FeeDTO feeDto = new FeeDTO(1,4000, false);
+
+        when(mockPreparedStatement.executeUpdate()).thenReturn(1);
+
+        // WHEN
+        feeDao.update(feeDto);
+
+        // THEN
+        verify(mockPreparedStatement).setInt(1, feeDto.getAmount());
+        verify(mockPreparedStatement).setBoolean(2, feeDto.getPaid());
+        verify(mockPreparedStatement).setInt(3, feeDto.getId());
+        verify(mockPreparedStatement).executeUpdate();
     }
 
 }
