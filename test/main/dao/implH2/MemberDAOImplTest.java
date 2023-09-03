@@ -155,7 +155,47 @@ class MemberDAOImplTest {
 
         //Assertions
         Assertions.assertEquals(memberList.size(), resultList.size());
-        Assertions.assertEquals(memberList.get(0).getId(), resultList.get(0).getId());
-        Assertions.assertEquals(memberList.get(1).getId(), resultList.get(1).getId());
+        Assertions.assertEquals(memberList.get(0).toString(), resultList.get(0).toString());
+        Assertions.assertEquals(memberList.get(1).toString(), resultList.get(1).toString());
+    }
+    @Test
+    void getByID_ShouldReturnMemberDto_WhenValidId() throws SQLException {
+        // GIVEN
+        int memberID = 1;
+        MemberDTO memberDTO = new MemberDTO(
+                1,
+                "Juan",
+                "Gomez",
+                "A",
+                "Moreno 340",
+                "666-555-333",
+                "juangomez@hotmail.com");
+
+        when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
+        when(mockResultSet.next()).thenReturn(true);
+        when(mockResultSet.getInt("id")).thenReturn(1);
+        when(mockResultSet.getString("name")).thenReturn("Juan");
+        when(mockResultSet.getString("surname")).thenReturn("Gomez");
+        when(mockResultSet.getString("category")).thenReturn("A");
+        when(mockResultSet.getString("address")).thenReturn("Moreno 340");
+        when(mockResultSet.getString("phone")).thenReturn("666-555-333");
+        when(mockResultSet.getString("email")).thenReturn("juangomez@hotmail.com");
+
+        // WHEN
+        MemberDTO resultDto = memberDao.getByID(memberID);
+
+        // THEN
+        verify(mockPreparedStatement).setInt(1, memberID);
+        verify(mockPreparedStatement).executeQuery();
+        verify(mockResultSet).next();
+        verify(mockResultSet).getString("name");
+        verify(mockResultSet).getString("surname");
+        verify(mockResultSet).getString("category");
+        verify(mockResultSet).getString("address");
+        verify(mockResultSet).getString("phone");
+        verify(mockResultSet).getString("email");
+
+        Assertions.assertNotNull(resultDto);
+        Assertions.assertEquals(memberDTO.toString(), resultDto.toString());
     }
 }
