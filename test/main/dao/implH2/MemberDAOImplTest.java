@@ -90,5 +90,19 @@ class MemberDAOImplTest {
         verify(mockPreparedStatement).executeUpdate();
     }
 
+    @Test
+    void delete_ShouldDeleteMember_WhenValidId() throws SQLException {
+        // GIVEN
+        int memberId = 1;
+
+        when(mockPreparedStatement.executeUpdate()).thenReturn(1);
+
+        // WHEN
+        memberDao.delete(memberId);
+
+        // THEN
+        verify(mockPreparedStatement).setInt(1, memberId);
+        verify(mockPreparedStatement).executeUpdate();
+    }
 
 }
