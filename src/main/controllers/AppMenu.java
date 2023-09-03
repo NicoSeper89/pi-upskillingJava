@@ -1,5 +1,6 @@
 package main.controllers;
 
+import main.config.JdbcConfiguration;
 import main.dao.FeeDAO;
 import main.dao.MemberDAO;
 import main.dao.dto.FeeDTO;
@@ -71,7 +72,7 @@ public class AppMenu {
 
             //Crear Miembro y almacenarlo en DB
             MemberDTO member = new MemberDTO(name, surname, category, address, phone, email);
-            MemberDAO dao = new MemberDAOImpl();
+            MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             dao.insert(member);
 
         } catch (RuntimeException e) {
@@ -93,7 +94,7 @@ public class AppMenu {
 
             // Solicitar ID de Miembro y buscarlo en DB.
             Integer id = integerScanner.enter("ID Miembro", "id");
-            MemberDAO dao = new MemberDAOImpl();
+            MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             MemberDTO member = dao.getByID(id);
 
             System.out.println(member);
@@ -132,7 +133,7 @@ public class AppMenu {
         try {
 
             //Obtener todos los Miembros
-            MemberDAO dao = new MemberDAOImpl();
+            MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
 
             //Instancia Lista de MiembrosDTO obtenidos de DB
             List<MemberDTO> memberList = dao.getAll();
@@ -158,7 +159,7 @@ public class AppMenu {
 
             // Solicitar ID de Miembro y buscarlo en DB.
             Integer id = integerScanner.enter("ID Miembro", "id");
-            MemberDAO dao = new MemberDAOImpl();
+            MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             MemberDTO member = dao.getByID(id);
 
             System.out.println(member);
@@ -180,7 +181,7 @@ public class AppMenu {
 
             // Solicitar ID de Miembro y eliminarlo en DB.
             Integer id = integerScanner.enter("ID Miembro", "id");
-            MemberDAO dao = new MemberDAOImpl();
+            MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             dao.delete(id);
 
         } catch (RuntimeException e) {
@@ -200,7 +201,7 @@ public class AppMenu {
 
             // Solicitar ID Miembro y buscarlo en DB.
             Integer id = integerScanner.enter("ID Miembro", "id");
-            MemberDAO memberDao = new MemberDAOImpl();
+            MemberDAO memberDao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             MemberDTO member = memberDao.getByID(id);
 
             System.out.println(member);
@@ -209,7 +210,7 @@ public class AppMenu {
 
             // Solicitar Importe de la Cuota a crear e instanciar su DTO con el importe.
             Integer amount = integerScanner.enter("Importe de Cuota", "amount");
-            FeeDAO feeDao = new FeeDAOImpl();
+            FeeDAO feeDao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             FeeDTO fee = new FeeDTO(amount, member);
 
             //Guardar nueva Cuota asociada al Miembro en DB.
@@ -232,7 +233,7 @@ public class AppMenu {
 
             // Solicitar ID de Cuota y buscarla en DB.
             Integer id = integerScanner.enter("ID Cuota", "id");
-            FeeDAO dao = new FeeDAOImpl();
+            FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             FeeDTO fee = dao.getByID(id);
 
             System.out.println(fee);
@@ -265,7 +266,7 @@ public class AppMenu {
 
             // Solicitar ID de Cuota y buscarla en DB.
             Integer id = integerScanner.enter("ID Cuota", "id");
-            FeeDAO dao = new FeeDAOImpl();
+            FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             FeeDTO fee = dao.getByID(id);
 
             System.out.println(fee);
@@ -287,7 +288,7 @@ public class AppMenu {
 
         try {
             //Obtener todas las Cuotas de DB.
-            FeeDAO dao = new FeeDAOImpl();
+            FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
 
             //Instancia Lista de DTO de Cuotas y guardar todas las obtenidas de DB.
             List<FeeDTO> feeList = dao.getAll();
@@ -313,7 +314,7 @@ public class AppMenu {
 
             // Solicitar ID de Cuota y buscarla en DB.
             Integer id = integerScanner.enter("ID Cuota", "id");
-            FeeDAO dao = new FeeDAOImpl();
+            FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             FeeDTO fee = dao.getByID(id);
 
             System.out.println(fee);
@@ -335,7 +336,7 @@ public class AppMenu {
 
             // Solicitar ID de Cuota y eliminarla de DB.
             Integer id = integerScanner.enter("ID Cuota", "id");
-            FeeDAO dao = new FeeDAOImpl();
+            FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             dao.delete(id);
 
         } catch (RuntimeException e) {

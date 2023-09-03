@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Add payFee and deleteFee methods in AppMenu">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Refactoring and renaming.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/FeeDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/MemberDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/PersonDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entities/Fee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entities/Fee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -38,8 +38,14 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/nicos/Desktop/proyectoIntegrador-expenseReportApp-modulo4&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -49,6 +55,13 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="main.dao.implH2.PersonDAOImpl" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="main.dao.implH2" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="main.utilities" />
       <recent name="dao.implH2" />
@@ -56,6 +69,96 @@
       <recent name="dao.dto" />
       <recent name="dao" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MemberDAOImplTest.insert_ShouldInsertMember_WhenValidMemberDto">
+    <configuration name="FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.FeeDAOImplTest" />
+      <option name="METHOD_NAME" value="insert_ShouldInsertFee_WhenValidFeeDto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberDAOImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
+      <option name="METHOD_NAME" value="insert_ShouldInsertFee_WhenValidFeeDto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberDAOImplTest.insert_ShouldInsertMember_WhenValidMemberDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
+      <option name="METHOD_NAME" value="insert_ShouldInsertMember_WhenValidMemberDto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDAOImplTest.insert_ShouldCallMapToEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.PersonDAOImplTest" />
+      <option name="METHOD_NAME" value="insert_ShouldCallMapToEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MemberDAOImplTest.insert_ShouldInsertMember_WhenValidMemberDto" />
+        <item itemvalue="JUnit.MemberDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" />
+        <item itemvalue="JUnit.FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" />
+        <item itemvalue="JUnit.MemberDAOImplTest" />
+        <item itemvalue="JUnit.PersonDAOImplTest.insert_ShouldCallMapToEntity" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -338,7 +441,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693630790588</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Refactoring and renaming.">
+      <option name="closed" value="true" />
+      <created>1693695371808</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1693695371808</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add MemberDTO class." />
     <MESSAGE value="Fix Member class." />
     <MESSAGE value="Rename MemberDAO class and implement insert() method" />
     <MESSAGE value="Logic of update and delete methods implemented from MemberDAO interface." />
@@ -378,7 +488,8 @@
     <MESSAGE value="Refactor validation of main menu options." />
     <MESSAGE value="Refactoring, renaming, adding comments and exception handling." />
     <MESSAGE value="Add payFee and deleteFee methods in AppMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add payFee and deleteFee methods in AppMenu" />
+    <MESSAGE value="Refactoring and renaming." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring and renaming." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,5 @@
 package main.dao.implH2;
 
-import main.config.JdbcConfiguration;
 import main.dao.FeeDAO;
 import main.dao.dto.FeeDTO;
 import main.dao.dto.MemberDTO;
@@ -34,8 +33,8 @@ public class FeeDAOImpl implements FeeDAO {
 
     private final Connection conn;
 
-    public FeeDAOImpl() {
-        this.conn = JdbcConfiguration.getDBConnection();
+    public FeeDAOImpl(Connection conn) {
+        this.conn = conn;
     }
 
     @Override

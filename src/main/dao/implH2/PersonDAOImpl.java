@@ -16,8 +16,8 @@ public abstract class PersonDAOImpl<M extends PersonDTO> implements PersonDAO<M>
 
     protected final Connection conn;
 
-    public PersonDAOImpl() {
-        this.conn = JdbcConfiguration.getDBConnection();
+    public PersonDAOImpl(Connection conn) {
+        this.conn = conn;
     }
 
     @Override

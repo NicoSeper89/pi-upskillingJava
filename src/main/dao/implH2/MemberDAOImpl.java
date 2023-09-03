@@ -6,12 +6,17 @@ import main.dao.dto.PersonDTO;
 import main.entities.Member;
 import main.entities.Person;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
 public class MemberDAOImpl extends PersonDAOImpl<MemberDTO> implements MemberDAO{
+
+    public MemberDAOImpl(Connection conn) {
+        super(conn);
+    }
 
     @Override
     public MemberDTO mapToDTO(ResultSet rs) throws SQLException {
