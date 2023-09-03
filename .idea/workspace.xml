@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Implement delete_ShouldDeleteFee_WhenValidId() to test delete() method of FeeDAOImpl class.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Implement getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData() to test getAll() method of FeeDAOImpl class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/main/dao/implH2/FeeDAOImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/main/dao/implH2/FeeDAOImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +68,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FeeDAOImplTest.getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData">
+  <component name="RunManager" selected="JUnit.FeeDAOImplTest.getById_ShouldReturnExpenseDto_WhenValidId">
     <configuration name="FeeDAOImplTest.delete_ShouldDeleteFee_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
@@ -95,6 +96,22 @@
       <option name="PACKAGE_NAME" value="main.dao.implH2" />
       <option name="MAIN_CLASS_NAME" value="main.dao.implH2.FeeDAOImplTest" />
       <option name="METHOD_NAME" value="getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeeDAOImplTest.getById_ShouldReturnExpenseDto_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pi-upskillingJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.implH2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.implH2" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.FeeDAOImplTest" />
+      <option name="METHOD_NAME" value="getById_ShouldReturnExpenseDto_WhenValidId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,29 +149,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberDAOImplTest.getById_ShouldReturnMemberDto_WhenValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pi-upskillingJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.dao.implH2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="main.dao.implH2" />
-      <option name="MAIN_CLASS_NAME" value="main.dao.implH2.MemberDAOImplTest" />
-      <option name="METHOD_NAME" value="getById_ShouldReturnMemberDto_WhenValidId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FeeDAOImplTest.getById_ShouldReturnExpenseDto_WhenValidId" />
         <item itemvalue="JUnit.FeeDAOImplTest.getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData" />
         <item itemvalue="JUnit.FeeDAOImplTest.delete_ShouldDeleteFee_WhenValidId" />
         <item itemvalue="JUnit.FeeDAOImplTest.update_ShouldUpdateExpense_WhenValidExpenseDto" />
         <item itemvalue="JUnit.FeeDAOImplTest.insert_ShouldInsertFee_WhenValidFeeDto" />
-        <item itemvalue="JUnit.MemberDAOImplTest.getById_ShouldReturnMemberDto_WhenValidId" />
       </list>
     </recent_temporary>
   </component>
@@ -519,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693779827543</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Implement getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData() to test getAll() method of FeeDAOImpl class.">
+      <option name="closed" value="true" />
+      <created>1693780761923</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1693780761923</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,7 +543,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Define abstract class PersonDTO and interface PersonDAO." />
     <MESSAGE value="Refactor DAOs, DTOs and Implementations of Person and Member." />
     <MESSAGE value="Change package structure by adding Main to the root." />
     <MESSAGE value="Application menu and &quot;add member&quot; and &quot;exit&quot; options." />
@@ -559,7 +567,8 @@
     <MESSAGE value="Define FeeDAOImplTest and implement insert_ShouldInsertFee_WhenValidFeeDto() to test the insert() method of the FeeDAOImpl class." />
     <MESSAGE value="Implement update_ShouldUpdateFee_WhenValidFeeDto() to test update() method of FeeDAOImpl class." />
     <MESSAGE value="Implement delete_ShouldDeleteFee_WhenValidId() to test delete() method of FeeDAOImpl class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement delete_ShouldDeleteFee_WhenValidId() to test delete() method of FeeDAOImpl class." />
+    <MESSAGE value="Implement getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData() to test getAll() method of FeeDAOImpl class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement getAll_ShouldReturnListOfFeesDtos_WhenDatabaseHasData() to test getAll() method of FeeDAOImpl class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

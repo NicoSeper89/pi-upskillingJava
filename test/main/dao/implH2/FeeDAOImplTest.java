@@ -141,4 +141,41 @@ class FeeDAOImplTest {
         Assertions.assertEquals(feeList.get(0).toString(), resultList.get(0).toString());
         Assertions.assertEquals(feeList.get(1).toString(), resultList.get(1).toString());
     }
+
+    @Test
+    void getByID_ShouldReturnFeeDto_WhenValidId() throws SQLException {
+
+        // GIVEN
+        int feeId = 1;
+
+        FeeDTO feeDTO = new FeeDTO(1,
+                4000,
+                "09-2023",
+                false,
+                new MemberDTO(1));
+
+        when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
+        when(mockResultSet.next()).thenReturn(true);
+        when(mockResultSet.getInt("id")).thenReturn(1);
+        when(mockResultSet.getInt("amount")).thenReturn(4000);
+        when(mockResultSet.getString("generated_date")).thenReturn("09-2023");
+        when(mockResultSet.getBoolean("paid")).thenReturn(false);
+        when(mockResultSet.getInt("owner_member_id")).thenReturn(1);
+
+        // WHEN
+        FeeDTO resultDto = feeDao.getByID(feeId);
+
+        // THEN
+        verify(mockPreparedStatement).setInt(1, feeId);
+        verify(mockPreparedStatement).executeQuery();
+        verify(mockResultSet).next();
+        verify(mockResultSet).getInt("id");
+        verify(mockResultSet).getInt("amount");
+        verify(mockResultSet).getString("generated_date");
+        verify(mockResultSet).getBoolean("paid");
+        verify(mockResultSet).getInt("owner_member_id");
+
+        Assertions.assertNotNull(resultDto);
+        Assertions.assertEquals(feeDTO.toString(), resultDto.toString());
+    }
 }

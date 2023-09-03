@@ -221,7 +221,7 @@ public class FeeDAOImpl implements FeeDAO {
 
             //Comprobar que la Cuota con el ID existía en DB.
             if (!rs.next()) {
-                throw new SQLException("No se encontró el miembro que busca en DB.");
+                throw new SQLException("No se encontró la Cuota que busca en DB.");
             }
 
             //Crear DTO de Cuota con el resultado de la consulta a DB.
