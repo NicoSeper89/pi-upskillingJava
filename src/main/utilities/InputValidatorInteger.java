@@ -14,8 +14,8 @@ public class InputValidatorInteger implements InputValidator<Integer> {
 
         switch (inputType) {
             case "menuOption":
-                if (inputValue < 1 || inputValue > 12) {
-                    throw new ScanDataException("Opción Invalida. Solo Valores entre 1(uno) - 12(doce)");
+                if (inputValue < 1 || inputValue > 13) {
+                    throw new ScanDataException("Opción Invalida. Solo Valores entre 1(uno) - 13(trece)");
                 }
                 return true;
             case "id":

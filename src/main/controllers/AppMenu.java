@@ -31,8 +31,9 @@ public class AppMenu {
         System.out.println("8 - Actualizar Cuota como pagada");
         System.out.println("9 - Ver lista de Cuotas");
         System.out.println("10 - Buscar Cuota");
-        System.out.println("11 - Eliminar Cuota");
-        System.out.println("12 - Salir");
+        System.out.println("11 - Ver lista de Cuotas de un Miembro");
+        System.out.println("12 - Eliminar Cuota");
+        System.out.println("13 - Salir");
         System.out.println("------------------------------------");
 
         return enterMenuOption();
@@ -323,6 +324,35 @@ public class AppMenu {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    public static void getAllMemberFees() {
+
+        System.out.println("Ingresar el ID del Miembro al que quiere listar sus Cuotas");
+
+        try {
+
+            //Scanner de datos
+            DataScannerInteger integerScanner = new DataScannerInteger();
+
+            // Solicitar ID de Miembro para obtener sus Cuotas de DB.
+            Integer id = integerScanner.enter("ID Miembro", "id");
+
+            MemberDAO memberDAO = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
+            MemberDTO member = memberDAO.getByID(id);
+
+            FeeDAO feeDAO = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
+            List<FeeDTO> feeList = feeDAO.getAllMemberFees(member.getId());
+
+            for (FeeDTO f : feeList) {
+                System.out.println(f);
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 
     public static void deleteFee() {

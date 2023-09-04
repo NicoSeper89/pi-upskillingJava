@@ -60,12 +60,16 @@ public class FeeCollectionSystem {
                 case 10:
                     AppMenu.getFeeById();
                     break;
-                //ELIMINAR CUOTA POR ID
+                //OBTENER TODAS LAS CUOTAS DE UN MIEMBRO
                 case 11:
+                    AppMenu.getAllMemberFees();
+                    break;
+                //ELIMINAR CUOTA POR ID
+                case 12:
                     AppMenu.deleteFee();
                     break;
                 //SALIR
-                case 12:
+                case 13:
                     exit = true;
                     break;
             }
