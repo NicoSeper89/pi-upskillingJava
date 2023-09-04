@@ -8,4 +8,6 @@ public interface FeeDAO extends DAO<FeeDTO> {
 
     List<FeeDTO> getAllMemberFees(Integer memberId);
 
+    void deleteAllMemberFees(Integer memberId);
+
 }

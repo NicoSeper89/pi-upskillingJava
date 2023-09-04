@@ -31,6 +31,10 @@ public class FeeDAOImpl implements FeeDAO {
 
     static final String GET_BY_ID = "SELECT * FROM fcsdb.fee WHERE id = ?;";
 
+    static final String GET_ALL_MEMBER_FEES = "SELECT * FROM fcsdb.fee WHERE owner_member_id = ?";
+
+    static final String DELETE_ALL_MEMBER_FEES = "DELETE FROM fcsdb.fee WHERE owner_member_id = ?";
+
     private final Connection conn;
 
     public FeeDAOImpl(Connection conn) {
@@ -252,8 +256,6 @@ public class FeeDAOImpl implements FeeDAO {
     @Override
     public List<FeeDTO> getAllMemberFees(Integer memberId) {
 
-        String GET_ALL_MEMBER_FEES = "SELECT * FROM fcsdb.fee " +
-                "WHERE owner_member_id = ?";
 
         PreparedStatement statement = null;
 
@@ -265,7 +267,7 @@ public class FeeDAOImpl implements FeeDAO {
             statement.setInt(1, memberId);
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
 
                 Integer id = resultSet.getInt("id");
                 Integer amount = resultSet.getInt("amount");
@@ -292,5 +294,40 @@ public class FeeDAOImpl implements FeeDAO {
                 }
             }
         }
+    }
+
+    @Override
+    public void deleteAllMemberFees(Integer memberId) {
+
+
+        PreparedStatement statement = null;
+
+        try {
+            //Instancia PreparedStatement con sentencia SQL DELETE
+            statement = conn.prepareStatement(DELETE_ALL_MEMBER_FEES);
+
+            //Setear statement con ID Miembro de Cuota a eliminar
+            statement.setInt(1, memberId);
+
+            //Ejecutar sentencia SQL para eliminar Cuota en DB.
+            Integer res = statement.executeUpdate();
+
+            //Comprobar si se eliminó la Cuota en DB.
+            if (res == 0) {
+                throw new SQLException("No se pudo eliminar las Cuotas del Miembro");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
     }
 }
