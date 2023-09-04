@@ -21,12 +21,10 @@ public class FeeCollectionSystem {
                 //AGREGAR MIEMBRO
                 case 1:
                     AppMenu.addMember();
-                    System.out.println("---- Se agrego el miembro correctamente ----");
                     break;
                 //ACTUALIZAR INFORMACIÓN MIEMBRO
                 case 2:
                     AppMenu.updateInfoMember();
-                    System.out.println("---- Se actualizo la información del miembro correctamente ----");
                     break;
                 //VER LISTA DE TODOS LOS MIEMBROS
                 case 3:

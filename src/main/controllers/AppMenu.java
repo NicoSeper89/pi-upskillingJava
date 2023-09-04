@@ -76,6 +76,8 @@ public class AppMenu {
             MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             dao.insert(member);
 
+            System.out.println("---- Se agrego el Miembro correctamente ----");
+
         } catch (RuntimeException e) {
             e.printStackTrace();
             System.out.println("Error:" + e.getMessage());
@@ -122,6 +124,8 @@ public class AppMenu {
 
             dao.update(member);
 
+            System.out.println("---- Se actualizo la información del miembro correctamente ----");
+
         } catch (RuntimeException e) {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
@@ -138,6 +142,13 @@ public class AppMenu {
 
             //Instancia Lista de MiembrosDTO obtenidos de DB
             List<MemberDTO> memberList = dao.getAll();
+
+            if (memberList.size() == 0) {
+                System.out.println("---- No se encontraron Miembros ----");
+                return;
+            }
+
+            System.out.println("---- Lista de Miembros ----");
 
             //Recorrer lista de MiembrosDTO imprimiendo sus datos.
             for (MemberDTO m : memberList) {
@@ -163,6 +174,7 @@ public class AppMenu {
             MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             MemberDTO member = dao.getByID(id);
 
+            System.out.println("---- Miembro: ----");
             System.out.println(member);
 
         } catch (RuntimeException e) {
@@ -180,15 +192,43 @@ public class AppMenu {
             //Scanner de datos Integer
             DataScannerInteger integerScanner = new DataScannerInteger();
 
-            // Solicitar ID de Miembro y eliminarlo en DB.
-            Integer id = integerScanner.enter("ID Miembro", "id");
-            MemberDAO dao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
-            dao.delete(id);
+            // Solicitar ID de Miembro.
+            Integer memberId = integerScanner.enter("ID Miembro", "id");
 
-        } catch (RuntimeException e) {
+            //Busco el Miembro en DB para ver si existe.
+            //Si no existe getByID() tira una exception RuntimeException.
+            MemberDAO memberDao = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
+            memberDao.getByID(memberId);
+
+            //Busco si el miembro tiene Cuotas en DB
+            FeeDAO feeDao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
+            List<FeeDTO> feesList = feeDao.getAllMemberFees(memberId);
+
+            if (feesList.size() > 0) {
+                //Determino si hay Cuotas impagas.
+                Boolean unpaidAmounts = feesList.stream()
+                        .anyMatch(m -> !m.getPaid());
+
+                if (unpaidAmounts)
+                    //Hay cuotas impagas, no se puede borrar el miembro
+                    throw new RuntimeException("El Miembro tiene Cuotas impagas, debe abonarlas antes de eliminarlo");
+                else {
+                    //No hay cuotas impagas, se eliminan las cuotas del miembro y luego el miembro de DB.
+                    feeDao.deleteAllMemberFees(memberId);
+                    memberDao.delete(memberId);
+                }
+            } else {
+                memberDao.delete(memberId);
+            }
+
+            System.out.println("---- Miembro Eliminado ----");
+
+        } catch (
+                RuntimeException e) {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
         }
+
     }
 
     public static void generateMemberFee() {
@@ -216,6 +256,8 @@ public class AppMenu {
 
             //Guardar nueva Cuota asociada al Miembro en DB.
             feeDao.insert(fee);
+
+            System.out.println("---- Cuota de Miembro generada ----");
 
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -249,6 +291,8 @@ public class AppMenu {
             //Actualizar la Cuota en DB.
             dao.update(fee);
 
+            System.out.println("---- Cuota de Miembro actualizada ----");
+
         } catch (RuntimeException e) {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
@@ -279,6 +323,8 @@ public class AppMenu {
             //Actualizar la Cuota en DB.
             dao.update(fee);
 
+            System.out.println("---- Cuota de Miembro PAGADA ----");
+
         } catch (RuntimeException e) {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
@@ -293,6 +339,13 @@ public class AppMenu {
 
             //Instancia Lista de DTO de Cuotas y guardar todas las obtenidas de DB.
             List<FeeDTO> feeList = dao.getAll();
+
+            if (feeList.size() == 0) {
+                System.out.println("---- No hay Cuotas almacenadas ----");
+                return;
+            }
+
+            System.out.println("---- Lista de Cuotas ----");
 
             //Recorrer lista de Cuotas imprimiendo sus datos.
             for (FeeDTO f : feeList) {
@@ -318,6 +371,7 @@ public class AppMenu {
             FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             FeeDTO fee = dao.getByID(id);
 
+            System.out.println("---- Cuota: ----");
             System.out.println(fee);
 
         } catch (RuntimeException e) {
@@ -344,6 +398,13 @@ public class AppMenu {
             FeeDAO feeDAO = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             List<FeeDTO> feeList = feeDAO.getAllMemberFees(member.getId());
 
+            if (feeList.size() == 0) {
+                System.out.println("---- Miembro sin Cuotas ----");
+                return;
+            }
+
+            System.out.println("---- Cuotas del Miembro: ----");
+
             for (FeeDTO f : feeList) {
                 System.out.println(f);
             }
@@ -364,10 +425,15 @@ public class AppMenu {
             //Scanner de datos Integer
             DataScannerInteger integerScanner = new DataScannerInteger();
 
-            // Solicitar ID de Cuota y eliminarla de DB.
+            // Solicitar ID de Cuota.
             Integer id = integerScanner.enter("ID Cuota", "id");
             FeeDAO dao = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
+
+            FeeDTO fee = dao.getByID(id);
+
             dao.delete(id);
+
+            System.out.println("---- Cuota eliminada ----");
 
         } catch (RuntimeException e) {
             e.printStackTrace();
