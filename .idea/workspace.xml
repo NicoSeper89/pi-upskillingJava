@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Implement getAllMemberFees() method of AppMenu class to get all fees for a member.">
+    <list default="true" id="245f162c-cb35-45f3-b6c8-8184f5ab51a7" name="Changes" comment="Add SQL statement files.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FeeCollectionSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/AppMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/FeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/FeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/implH2/FeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utilities/InputValidatorInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utilities/InputValidatorInteger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nicos/Desktop/proyectoIntegrador-expenseReportApp-modulo4&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Nico/repos/pi-upskillingJava&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -55,6 +54,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Nico\repos\pi-upskillingJava" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
       <recent name="main.dao.implH2.PersonDAOImpl" />
@@ -70,7 +72,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.FeeDAOImplTest">
     <configuration name="FeeDAOImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pi-upskillingJava" />
       <extension name="coverage">
@@ -167,22 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692323454477</updated>
-    </task>
-    <task id="LOCAL-00001" summary="First commit">
-      <option name="closed" value="true" />
-      <created>1692323511675</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1692323511676</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Define Member and Fee classes/entities.">
-      <option name="closed" value="true" />
-      <created>1692586142640</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1692586142640</updated>
     </task>
     <task id="LOCAL-00003" summary="JDBC Configuration.">
       <option name="closed" value="true" />
@@ -552,7 +538,31 @@
       <option name="project" value="LOCAL" />
       <updated>1693790397209</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Implement deleteAllMemberFees() in FeeDAOImpl class.">
+      <option name="closed" value="true" />
+      <created>1693794656502</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1693794656502</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Refactor and rename code.">
+      <option name="closed" value="true" />
+      <created>1693794733518</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1693794733519</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add SQL statement files.">
+      <option name="closed" value="true" />
+      <created>1693795136007</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1693795136007</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -567,9 +577,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add h2, JUnite and Mockito dependencies." />
-    <MESSAGE value="Add exception for data scan. Extends RuntimeException interface." />
-    <MESSAGE value="InputValidator interface and implementation of its validate method in InputValidatorString to check correct scanner data." />
     <MESSAGE value="DataScanner interface and implementation of its enter method on DataScannerString to enter scanner data and check it." />
     <MESSAGE value="Logic method addMember of AppMenu and changes in the scanner (final static now)" />
     <MESSAGE value="Add comments and refactor-rename." />
@@ -592,7 +599,10 @@
     <MESSAGE value="Implement getByID_ShouldReturnFeeDto_WhenValidId() to test getByID() method of FeeDAOImpl class." />
     <MESSAGE value="Implement the getAllMemberFees() method of the FeeDAOImpl class and getAllMemberFees_ShouldReturnListOfFeesDtosOfMember_WhenValidId() in the FeeDAOImplTest class to test it." />
     <MESSAGE value="Implement getAllMemberFees() method of AppMenu class to get all fees for a member." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement getAllMemberFees() method of AppMenu class to get all fees for a member." />
+    <MESSAGE value="Implement deleteAllMemberFees() in FeeDAOImpl class." />
+    <MESSAGE value="Refactor and rename code." />
+    <MESSAGE value="Add SQL statement files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SQL statement files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

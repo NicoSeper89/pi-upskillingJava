@@ -25,15 +25,16 @@ public class AppMenu {
         System.out.println("2 - Actualizar Información de Miembro");
         System.out.println("3 - Ver lista de Miembros");
         System.out.println("4 - Buscar Miembro");
-        System.out.println("5 - Eliminar Miembro");
-        System.out.println("6 - Generar Cuota a Miembro");
-        System.out.println("7 - Actualizar Información de Cuota");
-        System.out.println("8 - Actualizar Cuota como pagada");
-        System.out.println("9 - Ver lista de Cuotas");
-        System.out.println("10 - Buscar Cuota");
-        System.out.println("11 - Ver lista de Cuotas de un Miembro");
-        System.out.println("12 - Eliminar Cuota");
-        System.out.println("13 - Salir");
+        System.out.println("5 - Obtener importe adeudado de Miembro");
+        System.out.println("6 - Eliminar Miembro");
+        System.out.println("7 - Generar Cuota a Miembro");
+        System.out.println("8 - Actualizar Información de Cuota");
+        System.out.println("9 - Actualizar Cuota como pagada");
+        System.out.println("10 - Ver lista de Cuotas");
+        System.out.println("11 - Buscar Cuota");
+        System.out.println("12 - Ver lista de Cuotas de un Miembro");
+        System.out.println("13 - Eliminar Cuota");
+        System.out.println("14 - Salir");
         System.out.println("------------------------------------");
 
         return enterMenuOption();
@@ -181,6 +182,40 @@ public class AppMenu {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    public static void getMemberDebt() {
+
+        //Scanner de datos
+        DataScannerInteger integerScanner = new DataScannerInteger();
+
+        // Solicitar ID de Miembro.
+        Integer id = integerScanner.enter("ID Miembro", "id");
+
+        //Verificar que exista el Miembro.
+        //getByID arroja una exception RuntimeException si no lo encuentra.
+        MemberDAO memberDAO = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
+        MemberDTO member = memberDAO.getByID(id);
+
+        //Obtener Cuotas de Miembro de DB
+        FeeDAO feeDAO = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
+        List<FeeDTO> feeList = feeDAO.getAllMemberFees(member.getId());
+
+        //Verificar que existan Cuotas del Miembro
+        if (feeList.size() == 0) {
+            System.out.println("---- Miembro sin Cuotas ----");
+            return;
+        }
+
+        //Filtrar cuotas impagas (con propiedad paid en false)
+        //Sumar importe de todas las cuotas impagas e imprimir el total.
+        Integer totalDebt = feeList.stream()
+                .filter(f -> !f.getPaid())
+                .mapToInt(FeeDTO::getAmount)
+                .sum();
+
+        System.out.println("---- El Miembro debe: $" + totalDebt + " ----");
+
     }
 
     public static void deleteMember() {
@@ -389,15 +424,19 @@ public class AppMenu {
             //Scanner de datos
             DataScannerInteger integerScanner = new DataScannerInteger();
 
-            // Solicitar ID de Miembro para obtener sus Cuotas de DB.
+            // Solicitar ID de Miembro.
             Integer id = integerScanner.enter("ID Miembro", "id");
 
+            //Verificar que exista el Miembro.
+            // getByID arroja una exception RuntimeException si no lo encuentra.
             MemberDAO memberDAO = new MemberDAOImpl(JdbcConfiguration.getDBConnection());
             MemberDTO member = memberDAO.getByID(id);
 
+            //Obtener Cuotas de Miembro de DB
             FeeDAO feeDAO = new FeeDAOImpl(JdbcConfiguration.getDBConnection());
             List<FeeDTO> feeList = feeDAO.getAllMemberFees(member.getId());
 
+            //Verificar que existan Cuotas del Miembro
             if (feeList.size() == 0) {
                 System.out.println("---- Miembro sin Cuotas ----");
                 return;

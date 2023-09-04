@@ -34,40 +34,44 @@ public class FeeCollectionSystem {
                 case 4:
                     AppMenu.getMemberById();
                     break;
-                //BORRAR MIEMBRO
+                //OBTENER IMPORTE ADEUDADO DE MIEMBRO
                 case 5:
+                    AppMenu.getMemberDebt();
+                    break;
+                //BORRAR MIEMBRO
+                case 6:
                     AppMenu.deleteMember();
                     break;
                 //GENERAR CUOTA A MIEMBRO
-                case 6:
+                case 7:
                     AppMenu.generateMemberFee();
                     break;
                 //ACTUALIZAR IMPORTE DE UNA CUOTA
-                case 7:
+                case 8:
                     AppMenu.updateFeeAmount();
                     break;
                 //ACTUALIZAR CUOTA COMO PAGADA
-                case 8:
+                case 9:
                     AppMenu.payFee();
                     break;
                 //OBTENER TODAS LAS CUOTAS
-                case 9:
+                case 10:
                     AppMenu.getAllFees();
                     break;
                 //BUSCAR CUOTA POR ID
-                case 10:
+                case 11:
                     AppMenu.getFeeById();
                     break;
                 //OBTENER TODAS LAS CUOTAS DE UN MIEMBRO
-                case 11:
+                case 12:
                     AppMenu.getAllMemberFees();
                     break;
                 //ELIMINAR CUOTA POR ID
-                case 12:
+                case 13:
                     AppMenu.deleteFee();
                     break;
                 //SALIR
-                case 13:
+                case 14:
                     exit = true;
                     break;
             }
