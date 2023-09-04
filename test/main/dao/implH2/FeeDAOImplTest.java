@@ -70,7 +70,7 @@ class FeeDAOImplTest {
     void update_ShouldUpdateFee_WhenValidFeeDto() throws SQLException {
 
         // GIVEN
-        FeeDTO feeDto = new FeeDTO(1,4000, false);
+        FeeDTO feeDto = new FeeDTO(1, 4000, false);
 
         when(mockPreparedStatement.executeUpdate()).thenReturn(1);
 
@@ -177,5 +177,63 @@ class FeeDAOImplTest {
 
         Assertions.assertNotNull(resultDto);
         Assertions.assertEquals(feeDTO.toString(), resultDto.toString());
+    }
+
+    @Test
+    void getAllMemberFees_ShouldReturnListOfFeesDtosOfMember_WhenValidId() throws SQLException {
+
+        //GIVEN
+        Integer memberId = 1;
+
+        List<FeeDTO> memberFeesList = new ArrayList<>();
+
+        memberFeesList.add(new FeeDTO(
+                1,
+                4000,
+                "08-2023",
+                true,
+                new MemberDTO(1)
+        ));
+
+        memberFeesList.add(new FeeDTO(
+                2,
+                4000,
+                "09-2023",
+                false,
+                new MemberDTO(1)
+        ));
+
+        memberFeesList.add(new FeeDTO(
+                3,
+                2000,
+                "09-2023",
+                false,
+                new MemberDTO(2)
+        ));
+
+        when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
+        when(mockResultSet.next()).thenReturn(true, true, false);
+        when(mockResultSet.getInt("id")).thenReturn(1, 2);
+        when(mockResultSet.getInt("amount")).thenReturn(4000, 4000);
+        when(mockResultSet.getString("generated_date")).thenReturn("08-2023", "09-2023");
+        when(mockResultSet.getBoolean("paid")).thenReturn(true, false);
+        when(mockResultSet.getInt("owner_member_id")).thenReturn(1, 1);
+
+        //WHEN
+        List<FeeDTO> resultList = feeDao.getAllMemberFees(memberId);
+
+        //THEN
+        verify(mockPreparedStatement).executeQuery();
+        verify(mockResultSet, times(2)).getInt("id");
+        verify(mockResultSet, times(2)).getInt("amount");
+        verify(mockResultSet, times(2)).getString("generated_date");
+        verify(mockResultSet, times(2)).getBoolean("paid");
+        verify(mockResultSet, times(2)).getInt("owner_member_id");
+
+        //Assertions
+        Assertions.assertEquals(memberFeesList.get(0).toString(), resultList.get(0).toString());
+        Assertions.assertEquals(memberFeesList.get(1).toString(), resultList.get(1).toString());
+        Assertions.assertFalse(resultList.contains(memberFeesList.get(2)));
+
     }
 }

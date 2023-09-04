@@ -248,4 +248,49 @@ public class FeeDAOImpl implements FeeDAO {
             }
         }
     }
+
+    @Override
+    public List<FeeDTO> getAllMemberFees(Integer memberId) {
+
+        String GET_ALL_MEMBER_FEES = "SELECT * FROM fcsdb.fee " +
+                "WHERE owner_member_id = ?";
+
+        PreparedStatement statement = null;
+
+        List<FeeDTO> feesList = new ArrayList<>();
+
+        try {
+
+            statement = this.conn.prepareStatement(GET_ALL_MEMBER_FEES);
+            statement.setInt(1, memberId);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()){
+
+                Integer id = resultSet.getInt("id");
+                Integer amount = resultSet.getInt("amount");
+                String generationDate = resultSet.getString("generated_date");
+                Boolean paid = resultSet.getBoolean("paid");
+                Integer id_owner = resultSet.getInt("owner_member_id");
+
+                FeeDTO fee = new FeeDTO(id, amount, generationDate, paid, new MemberDTO(id_owner));
+
+                feesList.add(fee);
+
+            }
+
+            return feesList;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
 }
